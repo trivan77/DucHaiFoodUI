@@ -54,9 +54,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utils\NotifyBase.cs" />
+    <Compile Include="Utils\RelayCommand.cs" />
+    <Compile Include="Utils\SystemNotify.cs" />
+    <Compile Include="ViewModels\VMMainWindow.cs" />
+    <Compile Include="Views\Usercontrol\UCOverview.xaml.cs">
+      <DependentUpon>UCOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrol\UCStaffList.xaml.cs">
+      <DependentUpon>UCStaffList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrol\UCStoreList.xaml.cs">
+      <DependentUpon>UCStoreList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrol\UCTicketList.xaml.cs">
+      <DependentUpon>UCTicketList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\VMainWindow.xaml.cs">
       <DependentUpon>VMainWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Usercontrol\UCOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Usercontrol\UCStaffList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Usercontrol\UCStoreList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Usercontrol\UCTicketList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\VLogIn.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -111,8 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Utils\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\eye.png" />

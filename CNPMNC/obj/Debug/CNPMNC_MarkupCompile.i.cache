@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\App.xaml
-2-962044192
+6-1938514081
 
-72034626681
+151327408779
 13-1142990016
-Views\VLogIn.xaml;Views\VMainWindow.xaml;
+Views\Usercontrol\UCOverview.xaml;Views\Usercontrol\UCStaffList.xaml;Views\Usercontrol\UCStoreList.xaml;Views\Usercontrol\UCTicketList.xaml;Views\VLogIn.xaml;Views\VMainWindow.xaml;
 
-False
+True
 

@@ -14,12 +14,12 @@
                <Setter Property="HorizontalAlignment" Value="Stretch"/>
                <Setter Property="VerticalAlignment" Value="Stretch"/>
                <Setter Property="Background" Value="Transparent"/>
-               <Setter Property="BorderThickness" Value="0"/>
                <Setter Property="Template">
                     <Setter.Value>
                          <ControlTemplate TargetType="ToggleButton">
                               <Grid>
-                                   <Border x:Name="Border" Background="Transparent">
+                                   <Border x:Name="Border" Background="Transparent"
+                                           BorderBrush="LightGray">
                                         <TextBlock x:Name="Text" Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                    </Border>
                               </Grid>
@@ -32,6 +32,50 @@
                                    <Trigger Property="IsMouseOver" Value="True">
                                         <Setter TargetName="Border" Property="BorderBrush" Value="#FF125593"/>
                                         <Setter TargetName="Border" Property="BorderThickness" Value="0 0 0 3"/>
+                                        <Setter TargetName="Text" Property="Foreground" Value="#FF125593"/>
+                                        <!-- Xám nhẹ -->
+                                   </Trigger>
+                                   <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                             <Condition Property="IsMouseOver" Value="True"/>
+                                             <Condition Property="IsChecked" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter TargetName="Border" Property="Background" Value="White"/>
+                                   </MultiTrigger>
+                              </ControlTemplate.Triggers>
+                         </ControlTemplate>
+                    </Setter.Value>
+               </Setter>
+          </Style>
+
+          <Style x:Key="ChildItemButtonStyle" TargetType="ToggleButton">
+               <Setter Property="Foreground" Value="Black"/>
+               <Setter Property="FontSize" Value="15"/>
+               <Setter Property="FontWeight" Value="SemiBold"/>
+               <Setter Property="FontFamily" Value="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></Setter>
+               <Setter Property="VerticalContentAlignment" Value="Center"/>
+               <Setter Property="HorizontalContentAlignment" Value="Center"/>
+               <Setter Property="HorizontalAlignment" Value="Stretch"/>
+               <Setter Property="VerticalAlignment" Value="Stretch"/>
+               <Setter Property="Background" Value="Transparent"/>
+               <Setter Property="Template">
+                    <Setter.Value>
+                         <ControlTemplate TargetType="ToggleButton">
+                              <Grid>
+                                   <Border x:Name="Border" Background="Transparent"
+                                           BorderBrush="LightGray" BorderThickness="0 0 0 1">
+                                        <TextBlock x:Name="Text" Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                   </Border>
+                              </Grid>
+                              <ControlTemplate.Triggers>
+                                   <Trigger Property="IsChecked" Value="True">
+                                        <Setter TargetName="Border" Property="BorderBrush" Value="#FF125593"/>
+                                        <Setter TargetName="Border" Property="BorderThickness" Value="0 0 0 2"/>
+                                        <Setter TargetName="Text" Property="Foreground" Value="#FF125593"/>
+                                   </Trigger>
+                                   <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Border" Property="BorderBrush" Value="#FF125593"/>
+                                        <Setter TargetName="Border" Property="BorderThickness" Value="0 0 0 2"/>
                                         <Setter TargetName="Text" Property="Foreground" Value="#FF125593"/>
                                         <!-- Xám nhẹ -->
                                    </Trigger>

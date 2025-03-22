@@ -16,3 +16,11 @@ D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\VLogIn.baml
 D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\VMainWindow.g.cs
 D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\VMainWindow.baml
 D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\App.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Usercontrol\UCOverview.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Usercontrol\UCStaffList.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Usercontrol\UCOverview.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Usercontrol\UCStaffList.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Usercontrol\UCStoreList.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Usercontrol\UCTicketList.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Usercontrol\UCStoreList.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Usercontrol\UCTicketList.baml

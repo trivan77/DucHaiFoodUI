@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNPMNC.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,17 +21,40 @@ namespace CNPMNC.Views
      /// </summary>
      public partial class VMainWindow : Window
      {
+          VMMainWindow vmMainWindow;
           public VMainWindow()
           {
                InitializeComponent();
+
+               vmMainWindow = new VMMainWindow();
+               DataContext = vmMainWindow;
           }
 
           private void NavbarButton_Click(object sender, RoutedEventArgs e)
           {
+               vmMainWindow.IsTicketChildVisible = Visibility.Hidden;
+
                btnOverview.IsChecked = false;
-               btnHumanResource.IsChecked = false;
+               btnStaffList.IsChecked = false;
                btnStore.IsChecked = false;
                btnTicket.IsChecked = false;
+
+               ToggleButton clickedButton = sender as ToggleButton;
+               if (clickedButton != null)
+               {
+                    clickedButton.IsChecked = true;
+               }
+          }
+
+          private void TicketChildButton_Click(object sender, RoutedEventArgs e)
+          {
+               vmMainWindow.IsTicketChildVisible = Visibility.Hidden;
+
+               btnImportTicket.IsChecked = false;
+               btnExportTicket.IsChecked = false;
+               btnTransTicket.IsChecked = false;
+
+               btnTicket.IsChecked = true;
 
                ToggleButton clickedButton = sender as ToggleButton;
                if (clickedButton != null)

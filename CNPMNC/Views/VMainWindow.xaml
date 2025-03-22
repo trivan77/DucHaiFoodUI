@@ -48,13 +48,17 @@
                          </Grid.ColumnDefinitions>
 
                          <ToggleButton Grid.Column="0" Name="btnOverview" Style="{StaticResource NavbarButtonStyle}" 
-                                       Content="Tổng quan" Click="NavbarButton_Click" Cursor="Hand"></ToggleButton>
-                         <ToggleButton Grid.Column="1" Name="btnHumanResource" Style="{StaticResource NavbarButtonStyle}" 
-                                       Content="Nhân sự" Click="NavbarButton_Click" Cursor="Hand"></ToggleButton>
+                                       Content="Tổng quan" Click="NavbarButton_Click" Cursor="Hand"
+                                       Command="{Binding ShowOverviewCommand}"></ToggleButton>
+                         <ToggleButton Grid.Column="1" Name="btnStaffList" Style="{StaticResource NavbarButtonStyle}" 
+                                       Content="Nhân sự" Click="NavbarButton_Click" Cursor="Hand"
+                                       Command="{Binding ShowStaffListCommand}"></ToggleButton>
                          <ToggleButton Grid.Column="2" Name="btnStore" Style="{StaticResource NavbarButtonStyle}" 
-                                       Content="Kho hàng" Click="NavbarButton_Click" Cursor="Hand"></ToggleButton>
+                                       Content="Kho hàng" Click="NavbarButton_Click" Cursor="Hand"
+                                       Command="{Binding ShowStoreListCommand}"></ToggleButton>
                          <ToggleButton Grid.Column="3" Name="btnTicket" Style="{StaticResource NavbarButtonStyle}" 
-                                       Content="Phiếu hàng" Click="NavbarButton_Click" Cursor="Hand"></ToggleButton>
+                                       Content="Phiếu hàng" Cursor="Hand"
+                                       Command="{Binding ShowTicketChildCommand}"></ToggleButton>
                     </Grid>
 
                     <!--Thông tin đăng nhập-->
@@ -102,5 +106,56 @@
                </Grid>
           </Border>
 
+          <!--Menu con ticket và content control-->
+          <Grid Grid.Row="1">
+               <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+               </Grid.RowDefinitions>
+
+               <Grid>
+                    <Grid.ColumnDefinitions>
+                         <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                         <ColumnDefinition Width="2*"></ColumnDefinition>
+                         <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1" Visibility="{Binding IsTicketChildVisible}">
+                         <Grid.ColumnDefinitions>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                         </Grid.ColumnDefinitions>
+
+                         <Border Grid.Column="3" 
+                                 BorderBrush="LightGray" BorderThickness="1 0 1 0">
+                              <Grid>
+                                   <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                   </Grid.RowDefinitions>
+
+                                   <ToggleButton Grid.Row="0" Name="btnImportTicket" Style="{StaticResource ChildItemButtonStyle}"
+                                                 Content="Phiếu nhập" Margin="0 0 0 1" 
+                                                 Click="TicketChildButton_Click"></ToggleButton>
+                                   <ToggleButton Grid.Row="1" Name="btnExportTicket" Style="{StaticResource ChildItemButtonStyle}"
+                                                 Content="Phiếu xuất" Margin="0 0 0 1"
+                                                 Click="TicketChildButton_Click"></ToggleButton>
+                                   <ToggleButton Grid.Row="2" Name="btnTransTicket" Style="{StaticResource ChildItemButtonStyle}"
+                                                 Content="Phiếu điều chuyển"
+                                                 Click="TicketChildButton_Click"></ToggleButton>
+
+                              </Grid>
+                         </Border>
+                         
+                    </Grid>
+               </Grid>
+
+               <ContentControl Grid.Row="0" Grid.RowSpan="2"
+                               Content="{Binding CurrentView}"></ContentControl>
+          </Grid>
+          
      </Grid>
 </Window>
