@@ -1,0 +1,106 @@
+﻿<Window x:Class="CNPMNC.Views.VMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CNPMNC.Views"
+        mc:Ignorable="d"
+        WindowStyle="SingleBorderWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Title="Phần mềm quản lý cửa hàng - Đức Hải Foods" Height="900" Width="1500">
+     <Window.Resources>
+          <Style TargetType="Image">
+               <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"></Setter>
+          </Style>
+     </Window.Resources>
+
+     <Grid>
+          <Grid.RowDefinitions>
+               <RowDefinition></RowDefinition>
+               <RowDefinition Height="8*"></RowDefinition>
+          </Grid.RowDefinitions>
+
+          <!--Nav bar-->
+          <Border BorderBrush="LightGray" BorderThickness="0 0 0 1">
+               <Grid>
+                    <Grid.ColumnDefinitions>
+                         <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                         <ColumnDefinition Width="2*"></ColumnDefinition>
+                         <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Logo & Tên cửa hàng-->
+                    <Grid>
+                         <Image Source="/Resources/Images/DucHaiLogo.png" Width="80"
+                           HorizontalAlignment="Left" Margin="35 0 0 0"/>
+                         <TextBlock Grid.Column="1" Text="Đức Hải Foods" Margin="120 0 0 0"
+                               VerticalAlignment="Center" HorizontalAlignment="Left"
+                               FontSize="15" FontWeight="SemiBold" Foreground="#FF125593"
+                               FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                    </Grid>
+
+                    <!--Nav bar item-->
+                    <Grid Grid.Column="1">
+                         <Grid.ColumnDefinitions>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                         </Grid.ColumnDefinitions>
+
+                         <ToggleButton Grid.Column="0" Name="btnOverview" Style="{StaticResource NavbarButtonStyle}" 
+                                       Content="Tổng quan" Click="NavbarButton_Click" Cursor="Hand"></ToggleButton>
+                         <ToggleButton Grid.Column="1" Name="btnHumanResource" Style="{StaticResource NavbarButtonStyle}" 
+                                       Content="Nhân sự" Click="NavbarButton_Click" Cursor="Hand"></ToggleButton>
+                         <ToggleButton Grid.Column="2" Name="btnStore" Style="{StaticResource NavbarButtonStyle}" 
+                                       Content="Kho hàng" Click="NavbarButton_Click" Cursor="Hand"></ToggleButton>
+                         <ToggleButton Grid.Column="3" Name="btnTicket" Style="{StaticResource NavbarButtonStyle}" 
+                                       Content="Phiếu hàng" Click="NavbarButton_Click" Cursor="Hand"></ToggleButton>
+                    </Grid>
+
+                    <!--Thông tin đăng nhập-->
+                    <Grid Grid.Column="2">
+                         <Grid.ColumnDefinitions>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                         </Grid.ColumnDefinitions>
+
+                         <!--Ava-->
+                         <Ellipse Grid.Column="0" Height="40" Width="40"
+                             HorizontalAlignment="Right" Margin="10">
+                              <Ellipse.Fill>
+                                   <ImageBrush ImageSource="/Resources/Images/gamer.png" />
+                              </Ellipse.Fill>
+                         </Ellipse>
+
+                         <!--Name-->
+                         <Grid Grid.Column="1">
+                              <Grid.RowDefinitions>
+                                   <RowDefinition></RowDefinition>
+                                   <RowDefinition></RowDefinition>
+                              </Grid.RowDefinitions>
+
+                              <TextBlock Grid.Row="0" Text="Bảo Trí" Margin="20 0 0 0"
+                                    HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                    FontSize="15" FontWeight="SemiBold"
+                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                              <TextBlock Grid.Row="1" Text="Admin" Margin="20 0 0 0"
+                                    HorizontalAlignment="Left" VerticalAlignment="Top"
+                                    FontSize="12" FontWeight="Regular" Foreground="Gray"
+                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+
+                         </Grid>
+
+                         <!--Logout-->
+                         <Image Grid.Column="2" Height="30"
+                           HorizontalAlignment="Left"
+                           Source="/Resources/Images/exit.png" Cursor="Hand" />
+
+
+                    </Grid>
+
+               </Grid>
+          </Border>
+
+     </Grid>
+</Window>
