@@ -39,6 +39,10 @@ namespace CNPMNC.Views
                btnStore.IsChecked = false;
                btnTicket.IsChecked = false;
 
+               btnImportTicket.IsChecked = false;
+               btnExportTicket.IsChecked = false;
+               btnTransTicket.IsChecked = false;
+
                ToggleButton clickedButton = sender as ToggleButton;
                if (clickedButton != null)
                {
@@ -55,12 +59,20 @@ namespace CNPMNC.Views
                btnTransTicket.IsChecked = false;
 
                btnTicket.IsChecked = true;
+               btnOverview.IsChecked = false;
+               btnStaffList.IsChecked = false;
+               btnStore.IsChecked = false;
 
                ToggleButton clickedButton = sender as ToggleButton;
                if (clickedButton != null)
                {
                     clickedButton.IsChecked = true;
                }
+          }
+
+          private void btnTicket_Click(object sender, RoutedEventArgs e)
+          {
+               if (btnTicket.IsChecked == false && vmMainWindow.IsTicketChildVisible == Visibility.Hidden) btnTicket.IsChecked = true;
           }
      }
 }

@@ -1,9 +1,11 @@
 ﻿
-FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\App.xaml;;
-FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Usercontrol\UCOverview.xaml;;
-FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Usercontrol\UCStaffList.xaml;;
-FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Usercontrol\UCStoreList.xaml;;
-FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Usercontrol\UCTicketList.xaml;;
-FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\VLogIn.xaml;;
-FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\VMainWindow.xaml;;
+FE:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\App.xaml;;
+FE:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\Views\Usercontrol\UCExportTicketList.xaml;;
+FE:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\Views\Usercontrol\UCOverview.xaml;;
+FE:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\Views\Usercontrol\UCStaffList.xaml;;
+FE:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\Views\Usercontrol\UCStoreList.xaml;;
+FE:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\Views\Usercontrol\UCImportTicketList.xaml;;
+FE:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\Views\Usercontrol\UCTransTicketList.xaml;;
+FE:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\Views\VLogIn.xaml;;
+FE:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\Views\VMainWindow.xaml;;
 

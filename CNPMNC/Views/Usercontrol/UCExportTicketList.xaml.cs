@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CNPMNC.Views.Usercontrol
 {
      /// <summary>
-     /// Interaction logic for UCTicketList.xaml
+     /// Interaction logic for UCExportTicketList.xaml
      /// </summary>
-     public partial class UCTicketList : UserControl
+     public partial class UCExportTicketList : UserControl
      {
-          public UCTicketList()
+          public UCExportTicketList()
           {
                InitializeComponent();
           }

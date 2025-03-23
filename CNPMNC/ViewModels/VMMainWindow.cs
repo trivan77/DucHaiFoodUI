@@ -51,6 +51,9 @@ namespace CNPMNC.ViewModels
           private ICommand mShowStaffList;
           private ICommand mShowStoreList;
           private ICommand mShowTicketChild;
+          private ICommand mShowImportTicket;
+          private ICommand mShowExportTicket;
+          private ICommand mShowTransTicket;
           #endregion
 
           #region Get/Set Biến ICommand
@@ -101,6 +104,42 @@ namespace CNPMNC.ViewModels
                     return mShowTicketChild;
                }
           }
+
+          public ICommand ShowImportTicketCommand
+          {
+               get
+               {
+                    if (mShowImportTicket == null)
+                    {
+                         mShowImportTicket = new RelayCommand(ShowImportTicket);
+                    }
+                    return mShowImportTicket;
+               }
+          }
+
+          public ICommand ShowExportTicketCommand
+          {
+               get
+               {
+                    if (mShowExportTicket == null)
+                    {
+                         mShowExportTicket = new RelayCommand(ShowExportTicket);
+                    }
+                    return mShowExportTicket;
+               }
+          }
+
+          public ICommand ShowTransTicketCommand
+          {
+               get
+               {
+                    if (mShowTransTicket == null)
+                    {
+                         mShowTransTicket = new RelayCommand(ShowTransTicket);
+                    }
+                    return mShowTransTicket;
+               }
+          }
           #endregion
 
           private void ShowOverview()
@@ -131,6 +170,24 @@ namespace CNPMNC.ViewModels
                {
                     IsTicketChildVisible = Visibility.Hidden;
                }
+          }
+
+          private void ShowImportTicket()
+          {
+               if (CurrentView is UCImportTicketList) return;
+               CurrentView = new UCImportTicketList();
+          }
+
+          private void ShowExportTicket()
+          {
+               if (CurrentView is UCExportTicketList) return;
+               CurrentView = new UCExportTicketList();
+          }
+
+          private void ShowTransTicket()
+          {
+               if (CurrentView is UCTransTicketList) return;
+               CurrentView = new UCTransTicketList();
           }
      }
 }

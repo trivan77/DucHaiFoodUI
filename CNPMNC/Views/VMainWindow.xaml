@@ -57,8 +57,8 @@
                                        Content="Kho hàng" Click="NavbarButton_Click" Cursor="Hand"
                                        Command="{Binding ShowStoreListCommand}"></ToggleButton>
                          <ToggleButton Grid.Column="3" Name="btnTicket" Style="{StaticResource NavbarButtonStyle}" 
-                                       Content="Phiếu hàng" Cursor="Hand"
-                                       Command="{Binding ShowTicketChildCommand}"></ToggleButton>
+                                       Content="Phiếu hàng" Cursor="Hand" 
+                                       Command="{Binding ShowTicketChildCommand}" Click="btnTicket_Click"></ToggleButton>
                     </Grid>
 
                     <!--Thông tin đăng nhập-->
@@ -139,13 +139,13 @@
 
                                    <ToggleButton Grid.Row="0" Name="btnImportTicket" Style="{StaticResource ChildItemButtonStyle}"
                                                  Content="Phiếu nhập" Margin="0 0 0 1" 
-                                                 Click="TicketChildButton_Click"></ToggleButton>
+                                                 Click="TicketChildButton_Click" Command="{Binding ShowImportTicketCommand}"></ToggleButton>
                                    <ToggleButton Grid.Row="1" Name="btnExportTicket" Style="{StaticResource ChildItemButtonStyle}"
                                                  Content="Phiếu xuất" Margin="0 0 0 1"
-                                                 Click="TicketChildButton_Click"></ToggleButton>
+                                                 Click="TicketChildButton_Click" Command="{Binding ShowExportTicketCommand}"></ToggleButton>
                                    <ToggleButton Grid.Row="2" Name="btnTransTicket" Style="{StaticResource ChildItemButtonStyle}"
                                                  Content="Phiếu điều chuyển"
-                                                 Click="TicketChildButton_Click"></ToggleButton>
+                                                 Click="TicketChildButton_Click" Command="{Binding ShowTransTicketCommand}"></ToggleButton>
 
                               </Grid>
                          </Border>

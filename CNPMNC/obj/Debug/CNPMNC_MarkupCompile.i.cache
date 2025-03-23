@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\
 CNPMNC
 none
 false
 DEBUG;TRACE
-D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\App.xaml
-6-1938514081
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\App.xaml
+81852423087
 
-151327408779
-13-1142990016
-Views\Usercontrol\UCOverview.xaml;Views\Usercontrol\UCStaffList.xaml;Views\Usercontrol\UCStoreList.xaml;Views\Usercontrol\UCTicketList.xaml;Views\VLogIn.xaml;Views\VMainWindow.xaml;
+17567635301
+14-526264135
+Views\Usercontrol\UCExportTicketList.xaml;Views\Usercontrol\UCOverview.xaml;Views\Usercontrol\UCStaffList.xaml;Views\Usercontrol\UCStoreList.xaml;Views\Usercontrol\UCImportTicketList.xaml;Views\Usercontrol\UCTransTicketList.xaml;Views\VLogIn.xaml;Views\VMainWindow.xaml;
 
 True
 
