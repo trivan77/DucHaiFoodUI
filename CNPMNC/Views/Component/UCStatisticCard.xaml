@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="CNPMNC.Views.Component.UCStatisticCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CNPMNC.Views.Component"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="200">
+     <Grid Background="#FFEAEAEA" Margin="5">
+          <Grid.RowDefinitions>
+               <RowDefinition Height="Auto"/>
+               <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+
+          <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5">
+               <Image Source="{Binding IconSource, RelativeSource={RelativeSource AncestorType=UserControl}}" Width="30" Height="30"/>
+               <TextBlock Text="{Binding Title, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                          VerticalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="5,0,0,0" Foreground="#FF1D2939"
+                          FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+          </StackPanel>
+
+          <StackPanel Grid.Row="1" Margin="5">
+               <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Revenue, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                               FontSize="20" FontWeight="Bold" Foreground="#FF1D2939"
+                               FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+                    <Image Source="{Binding ChartSource, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                           Width="30" Height="30" Margin="10,0,0,0"/>
+               </StackPanel>
+
+               <TextBlock>
+                    <Run Text="{Binding Percentage, RelativeSource={RelativeSource AncestorType=UserControl}, StringFormat={}{0}%}" 
+                         Foreground="{Binding PercentageColor, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                         FontSize="12" FontWeight="Bold"
+                         FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+                    <Run Text=" so với tháng trước" Foreground="Gray" FontSize="12"/>
+               </TextBlock>
+          </StackPanel>
+     </Grid>
+</UserControl>

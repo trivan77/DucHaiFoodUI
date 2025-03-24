@@ -54,3 +54,10 @@ E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\CNPMNC.exe
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\CNPMNC.pdb
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\bin\Debug\CNPMNC.pdb
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\CNPMNC.csproj.AssemblyReference.cache
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\bin\Debug\LiveCharts.dll
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\bin\Debug\LiveCharts.pdb
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\bin\Debug\LiveCharts.xml
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\CNPMNC.csproj.CopyComplete
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\UCStatisticCard.g.cs
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\UCStatisticCard.baml
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\GeneratedInternalTypeHelper.g.cs
