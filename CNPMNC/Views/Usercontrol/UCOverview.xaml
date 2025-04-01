@@ -6,15 +6,15 @@
              xmlns:local="clr-namespace:CNPMNC.Views.Usercontrol"
              xmlns:statistic="clr-namespace:CNPMNC.Views.Component"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="1300">
      <Grid Margin="30 0 30 0">
           <Grid.ColumnDefinitions>
                <ColumnDefinition></ColumnDefinition>
-               <ColumnDefinition Width="2*"></ColumnDefinition>
+               <ColumnDefinition Width="2.6*"></ColumnDefinition>
           </Grid.ColumnDefinitions>
           <Grid.RowDefinitions>
                <RowDefinition></RowDefinition>
-               <RowDefinition></RowDefinition>
+               <RowDefinition Height="1.5*"></RowDefinition>
           </Grid.RowDefinitions>
 
           <Grid Grid.Row="0" Grid.Column="0">
@@ -28,7 +28,16 @@
                </Grid.RowDefinitions>
                <statistic:UCStatisticCard Grid.Row="0" Title="Tổng doanh thu"
                                           Revenue="433" Percentage="21"
-                                          IconSource="/Resources/Images/Credit card_light.png"></statistic:UCStatisticCard>
+                                          IconSource="/Resources/Images/Credit_card_light.png"></statistic:UCStatisticCard>
+               <statistic:UCStatisticCard Grid.Row="1" Title="Nhập hàng"
+                                          Revenue="134" Percentage="21"
+                                          IconSource="/Resources/Images/Import_light.png"></statistic:UCStatisticCard>
+               <statistic:UCStatisticCard Grid.Row="0" Grid.Column="1" Title="Tổng lợi nhuân"
+                                          Revenue="110" Percentage="21"
+                                          IconSource="/Resources/Images/Money_light.png"></statistic:UCStatisticCard>
+               <statistic:UCStatisticCard Grid.Row="1" Grid.Column="1" Title="Xuất hàng"
+                                          Revenue="24" Percentage="-10"
+                                          IconSource="/Resources/Images/Export_light.png"></statistic:UCStatisticCard>
           </Grid>
           
      </Grid>

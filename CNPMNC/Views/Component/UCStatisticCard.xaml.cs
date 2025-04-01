@@ -37,6 +37,9 @@ namespace CNPMNC.Views.Component
               DependencyProperty.Register("Percentage", typeof(int), typeof(UCStatisticCard),
                   new PropertyMetadata(0, OnPercentageChanged));
 
+          public static readonly DependencyProperty SignProperty =
+              DependencyProperty.Register("Sign", typeof(string), typeof(UCStatisticCard), new PropertyMetadata(""));
+
           public static readonly DependencyProperty ChartSourceProperty =
               DependencyProperty.Register("ChartSource", typeof(string), typeof(UCStatisticCard), new PropertyMetadata(null));
 
@@ -67,10 +70,16 @@ namespace CNPMNC.Views.Component
                set => SetValue(PercentageProperty, value);
           }
 
+          public string Sign
+          {
+               get => (string)GetValue(SignProperty);
+               set => SetValue(SignProperty, value);
+          }
+
           public string ChartSource
           {
                get => (string)GetValue(ChartSourceProperty);
-               private set => SetValue(ChartSourceProperty, value);
+               set => SetValue(ChartSourceProperty, value);
           }
 
           public Brush PercentageColor
@@ -91,13 +100,14 @@ namespace CNPMNC.Views.Component
           {
                if (Percentage < 0) // Giảm doanh thu
                {
-                    ChartSource = "Resources/Images/Down  Chart.png";
+                    ChartSource = "/Resources/Images/DownChart.png";
                     PercentageColor = Brushes.Red;
                }
                else // Tăng doanh thu hoặc bằng 0
                {
-                    ChartSource = "Resources/Images/UpChart.png";
+                    ChartSource = "/Resources/Images/UpChart.png";
                     PercentageColor = new SolidColorBrush(Color.FromRgb(18, 85, 147));
+                    Sign = "+";
                }
           }
      }

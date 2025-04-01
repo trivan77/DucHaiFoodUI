@@ -183,7 +183,7 @@
     <Resource Include="Resources\Images\UpChart.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\Credit card_light.png" />
+    <Resource Include="Resources\Images\Credit_card_light.png" />
     <Resource Include="Resources\Images\Export_light.png" />
     <Resource Include="Resources\Images\Import_light.png" />
     <Resource Include="Resources\Images\Money_light.png" />
