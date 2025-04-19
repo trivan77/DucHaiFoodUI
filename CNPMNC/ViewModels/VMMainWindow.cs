@@ -1,7 +1,15 @@
 ﻿using CNPMNC.Utils;
 using CNPMNC.Views.Usercontrol;
+using LiveChartsCore;
+using LiveChartsCore.Defaults;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Drawing.Geometries;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView.Painting.Effects;
+using SkiaSharp;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +28,8 @@ namespace CNPMNC.ViewModels
           }
 
           #region Biến
+
+
           private UserControl currentView;
           private Visibility isTicketChildVisible = Visibility.Hidden;
           #endregion
@@ -43,7 +53,7 @@ namespace CNPMNC.ViewModels
                     isTicketChildVisible = value;
                     OnPropertyChanged(nameof(IsTicketChildVisible));
                }
-          } 
+          }
           #endregion
 
           #region Biến ICommand
@@ -162,7 +172,7 @@ namespace CNPMNC.ViewModels
 
           private void ShowTicketChild()
           {
-               if(IsTicketChildVisible == Visibility.Hidden)
+               if (IsTicketChildVisible == Visibility.Hidden)
                {
                     IsTicketChildVisible = Visibility.Visible;
                }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNPMNC.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,15 @@ namespace CNPMNC.Views.Usercontrol
      /// </summary>
      public partial class UCOverview : UserControl
      {
+          VMOverview vm;
           public UCOverview()
           {
                InitializeComponent();
+               vm = new VMOverview();
+               this.DataContext = vm;
+
+               profitChart.Values = vm.Values;
+               profitChart.Legends = vm.Legends;
           }
      }
 }

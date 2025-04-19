@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="CNPMNC.Views.Component.ForOverview.UCProfitChart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CNPMNC.Views.Usercontrol"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+     <Grid>
+          <Grid.ColumnDefinitions>
+               <ColumnDefinition></ColumnDefinition>
+               <ColumnDefinition Width="1.7*"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          
+          <!--Chú thích và đơn vị-->
+          <Grid>
+               <StackPanel VerticalAlignment="Top" Orientation="Vertical" Margin="18 30 0 0">
+                    <Grid Margin="0 0 0 10">
+                         <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="15"></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                         </Grid.ColumnDefinitions>
+
+                         <Rectangle Width="15" Height="15" Fill="LightGray"></Rectangle>
+                         <TextBlock x:Name="legend1" Grid.Column="1" HorizontalAlignment="Left" Margin="10 0 0 0"
+                                    Text="Sản phẩm 1" FontSize="13" FontWeight="DemiBold" Foreground="#FF125593"
+                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                    </Grid>
+                    <Grid Margin="0 0 0 10">
+                         <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="15"></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                         </Grid.ColumnDefinitions>
+
+                         <Rectangle Width="15" Height="15" Fill="#003865"></Rectangle>
+                         <TextBlock x:Name="legend2" Grid.Column="1" HorizontalAlignment="Left" Margin="10 0 0 0"
+                                    Text="Sản phẩm 1" FontSize="13" FontWeight="DemiBold" Foreground="#FF125593"
+                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                    </Grid>
+                    <Grid Margin="0 0 0 10">
+                         <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="15"></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                         </Grid.ColumnDefinitions>
+
+                         <Rectangle Width="15" Height="15" Fill="#3CA5F6"></Rectangle>
+                         <TextBlock x:Name="legend3" Grid.Column="1" HorizontalAlignment="Left" Margin="10 0 0 0"
+                                    Text="Sản phẩm 1" FontSize="13" FontWeight="DemiBold" Foreground="#FF125593"
+                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                    </Grid>
+                    <Grid>
+                         <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="15"></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                         </Grid.ColumnDefinitions>
+
+                         <Rectangle Width="15" Height="15" Fill="#6D859C"></Rectangle>
+                         <TextBlock x:Name="legend4" Grid.Column="1" HorizontalAlignment="Left" Margin="10 0 0 0"
+                                    Text="Sản phẩm 1" FontSize="13" FontWeight="DemiBold" Foreground="#FF125593"
+                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                    </Grid>
+               </StackPanel>
+               <TextBlock VerticalAlignment="Bottom" Margin="18 0 0 0"
+                          Text="(triệu đồng)" FontSize="12" FontWeight="DemiBold" Foreground="#FF125593"
+                          FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+          </Grid>
+          
+          <!--Biểu đồ-->
+          <Grid Grid.Column="2">
+               <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+               </Grid.ColumnDefinitions>
+
+               <Grid Grid.Column="0" Margin="5 0">
+                    <Grid.RowDefinitions>
+                         <RowDefinition></RowDefinition>
+                         <RowDefinition x:Name="Column1"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="num1" Text="Số lượng 1" Margin="0 0 0 5"
+                               VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                               FontSize="12" FontWeight="DemiBold" Foreground="#FF125593"
+                               FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                    <Rectangle Grid.Row="1" Fill="LightGray" Width="Auto" Height="Auto"></Rectangle>
+               </Grid>
+
+               <Grid Grid.Column="1" Margin="5 0">
+                    <Grid.RowDefinitions>
+                         <RowDefinition></RowDefinition>
+                         <RowDefinition x:Name="Column2"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="num2" Text="Số lượng 1" Margin="0 0 0 5"
+                               VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                               FontSize="12" FontWeight="DemiBold" Foreground="#FF125593"
+                               FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                    <Rectangle Grid.Row="1" Fill="#003865" Width="Auto" Height="Auto"></Rectangle>
+               </Grid>
+
+               <Grid Grid.Column="2" Margin="5 0">
+                    <Grid.RowDefinitions>
+                         <RowDefinition></RowDefinition>
+                         <RowDefinition x:Name="Column3"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="num3" Text="Số lượng 1" Margin="0 0 0 5"
+                               VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                               FontSize="12" FontWeight="DemiBold" Foreground="#FF125593"
+                               FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                    <Rectangle Grid.Row="1" Fill="#3CA5F6" Width="Auto" Height="Auto"></Rectangle>
+               </Grid>
+
+               <Grid Grid.Column="3" Margin="5 0">
+                    <Grid.RowDefinitions>
+                         <RowDefinition></RowDefinition>
+                         <RowDefinition x:Name="Column4"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="num4" Text="Số lượng 1" Margin="0 0 0 5"
+                               VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                               FontSize="12" FontWeight="DemiBold" Foreground="#FF125593"
+                               FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                    <Rectangle Grid.Row="1" Fill="#6D859C" Width="Auto" Height="Auto"></Rectangle>
+               </Grid>
+
+          </Grid>
+          
+     </Grid>
+</UserControl>

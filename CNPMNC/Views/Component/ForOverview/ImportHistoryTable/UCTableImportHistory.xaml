@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="CNPMNC.Views.Component.ForOverview.ImportHistoryTable.UCTableImportHistory"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CNPMNC.Views.Component.ForOverview.ImportHistoryTable"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+          <StackPanel>
+               <!-- Header -->
+               <Grid Background="#FF125593" Height="40">
+                    <Grid.ColumnDefinitions>
+                         <ColumnDefinition></ColumnDefinition>
+                         <ColumnDefinition></ColumnDefinition>
+                         <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                         <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                         <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                         <ColumnDefinition Width="100"></ColumnDefinition>
+                         <ColumnDefinition Width="16"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Mã phiếu" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk" />
+                    <TextBlock Grid.Column="1" Text="Thời gian" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
+                    <TextBlock Grid.Column="2" Text="Kho" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
+                    <TextBlock Grid.Column="3" Text="Thành tiền (VNĐ)" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
+                    <TextBlock Grid.Column="4" Text="Người tạo phiếu" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
+                    <TextBlock Grid.Column="5" Text=" " Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
+               </Grid>
+
+               <!-- Body -->
+               <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Height="400">
+                    <ItemsControl ItemsSource="{Binding ImportHistoryRows}">
+                         <ItemsControl.ItemTemplate>
+                              <DataTemplate>
+                                   <local:UCRowImportHistory Margin="0 5 0 0" Height="40"/>
+                              </DataTemplate>
+                         </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+               </ScrollViewer>
+          </StackPanel>
+     </Grid>
+</UserControl>

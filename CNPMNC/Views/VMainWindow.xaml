@@ -64,14 +64,14 @@
                     <!--Thông tin đăng nhập-->
                     <Grid Grid.Column="2">
                          <Grid.ColumnDefinitions>
-                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                              <ColumnDefinition Width="1.2*"></ColumnDefinition>
                               <ColumnDefinition Width="0.8*"></ColumnDefinition>
-                              <ColumnDefinition></ColumnDefinition>
                          </Grid.ColumnDefinitions>
 
                          <!--Ava-->
                          <Ellipse Grid.Column="0" Height="40" Width="40"
-                             HorizontalAlignment="Right" Margin="10">
+                             HorizontalAlignment="Right" Margin="0 0 20 0">
                               <Ellipse.Fill>
                                    <ImageBrush ImageSource="/Resources/Images/gamer.png" />
                               </Ellipse.Fill>
@@ -85,77 +85,51 @@
                               </Grid.RowDefinitions>
 
                               <TextBlock Grid.Row="0" Text="Bảo Trí" Margin="20 0 0 0"
-                                    HorizontalAlignment="Left" VerticalAlignment="Bottom"
-                                    FontSize="15" FontWeight="SemiBold"
-                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                                         HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                         FontSize="15" FontWeight="SemiBold"
+                                         FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
                               <TextBlock Grid.Row="1" Text="Admin" Margin="20 0 0 0"
-                                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    FontSize="12" FontWeight="Regular" Foreground="Gray"
-                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
+                                         HorizontalAlignment="Left" VerticalAlignment="Top"
+                                         FontSize="12" FontWeight="Regular" Foreground="Gray"
+                                         FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"></TextBlock>
 
                          </Grid>
 
                          <!--Logout-->
-                         <Image Grid.Column="2" Height="30"
-                           HorizontalAlignment="Left"
-                           Source="/Resources/Images/exit.png" Cursor="Hand" />
+                         <Image Grid.Column="2" Height="30" VerticalAlignment="Bottom" Margin="0 0 0 35"
+                                HorizontalAlignment="Left"
+                                Source="/Resources/Images/exit.png" Cursor="Hand" />
 
 
                     </Grid>
 
                </Grid>
           </Border>
-
-          <!--Menu con ticket và content control-->
-          <Grid Grid.Row="1">
-               <Grid.RowDefinitions>
-                    <RowDefinition Height="100"></RowDefinition>
-                    <RowDefinition></RowDefinition>
-               </Grid.RowDefinitions>
-
+          <Border Grid.Row="1" Visibility="{Binding IsTicketChildVisible}" Panel.ZIndex="999" Background="White"
+                  Height="90" Width="196" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="390 0"               
+                  BorderBrush="LightGray" BorderThickness="1 0 1 0">
                <Grid>
-                    <Grid.ColumnDefinitions>
-                         <ColumnDefinition Width="0.8*"></ColumnDefinition>
-                         <ColumnDefinition Width="2*"></ColumnDefinition>
-                         <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                         <RowDefinition></RowDefinition>
+                         <RowDefinition></RowDefinition>
+                         <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
 
-                    <Grid Grid.Column="1" Visibility="{Binding IsTicketChildVisible}">
-                         <Grid.ColumnDefinitions>
-                              <ColumnDefinition></ColumnDefinition>
-                              <ColumnDefinition></ColumnDefinition>
-                              <ColumnDefinition></ColumnDefinition>
-                              <ColumnDefinition></ColumnDefinition>
-                         </Grid.ColumnDefinitions>
-
-                         <Border Grid.Column="3" 
-                                 BorderBrush="LightGray" BorderThickness="1 0 1 0">
-                              <Grid>
-                                   <Grid.RowDefinitions>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                   </Grid.RowDefinitions>
-
-                                   <ToggleButton Grid.Row="0" Name="btnImportTicket" Style="{StaticResource ChildItemButtonStyle}"
+                    <ToggleButton Grid.Row="0" Name="btnImportTicket" Style="{StaticResource ChildItemButtonStyle}"
                                                  Content="Phiếu nhập" Margin="0 0 0 1" 
                                                  Click="TicketChildButton_Click" Command="{Binding ShowImportTicketCommand}"></ToggleButton>
-                                   <ToggleButton Grid.Row="1" Name="btnExportTicket" Style="{StaticResource ChildItemButtonStyle}"
+                    <ToggleButton Grid.Row="1" Name="btnExportTicket" Style="{StaticResource ChildItemButtonStyle}"
                                                  Content="Phiếu xuất" Margin="0 0 0 1"
                                                  Click="TicketChildButton_Click" Command="{Binding ShowExportTicketCommand}"></ToggleButton>
-                                   <ToggleButton Grid.Row="2" Name="btnTransTicket" Style="{StaticResource ChildItemButtonStyle}"
+                    <ToggleButton Grid.Row="2" Name="btnTransTicket" Style="{StaticResource ChildItemButtonStyle}"
                                                  Content="Phiếu điều chuyển"
                                                  Click="TicketChildButton_Click" Command="{Binding ShowTransTicketCommand}"></ToggleButton>
 
-                              </Grid>
-                         </Border>
-                         
-                    </Grid>
                </Grid>
+          </Border>
 
-               <ContentControl Grid.Row="0" Grid.RowSpan="2"
-                               Content="{Binding CurrentView}"></ContentControl>
+          <!--Content control-->
+          <ContentControl Grid.Row="1" Content="{Binding CurrentView}"></ContentControl>
+
           </Grid>
-          
-     </Grid>
 </Window>

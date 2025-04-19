@@ -3,20 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CNPMNC.Views.Usercontrol"
+             xmlns:local="clr-namespace:CNPMNC.Views.Component.ForOverview"
              xmlns:statistic="clr-namespace:CNPMNC.Views.Component"
+             xmlns:importHistory="clr-namespace:CNPMNC.Views.Component.ForOverview.ImportHistoryTable"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF" 
+             xmlns:viewmodels="clr-namespace:CNPMNC.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:VMOverview}"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1300">
+
      <Grid Margin="30 0 30 0">
           <Grid.ColumnDefinitions>
                <ColumnDefinition></ColumnDefinition>
-               <ColumnDefinition Width="2.6*"></ColumnDefinition>
+               <ColumnDefinition Width="2*"></ColumnDefinition>
           </Grid.ColumnDefinitions>
           <Grid.RowDefinitions>
                <RowDefinition></RowDefinition>
                <RowDefinition Height="1.5*"></RowDefinition>
           </Grid.RowDefinitions>
 
+          <!--4 thẻ thống kê-->
           <Grid Grid.Row="0" Grid.Column="0">
                <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -26,19 +31,114 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                </Grid.RowDefinitions>
-               <statistic:UCStatisticCard Grid.Row="0" Title="Tổng doanh thu"
+               <statistic:UCStatisticCard Grid.Row="0" Title="Tổng doanh thu" Margin=" 0 0 5 0"
                                           Revenue="433" Percentage="21"
                                           IconSource="/Resources/Images/Credit_card_light.png"></statistic:UCStatisticCard>
-               <statistic:UCStatisticCard Grid.Row="1" Title="Nhập hàng"
+               <statistic:UCStatisticCard Grid.Row="1" Title="Nhập hàng" Margin=" 0 0 5 0"
                                           Revenue="134" Percentage="21"
                                           IconSource="/Resources/Images/Import_light.png"></statistic:UCStatisticCard>
-               <statistic:UCStatisticCard Grid.Row="0" Grid.Column="1" Title="Tổng lợi nhuân"
+               <statistic:UCStatisticCard Grid.Row="0" Grid.Column="1" Title="Tổng lợi nhuân" Margin="5 0 0 0"
                                           Revenue="110" Percentage="21"
                                           IconSource="/Resources/Images/Money_light.png"></statistic:UCStatisticCard>
-               <statistic:UCStatisticCard Grid.Row="1" Grid.Column="1" Title="Xuất hàng"
+               <statistic:UCStatisticCard Grid.Row="1" Grid.Column="1" Title="Xuất hàng" Margin="5 0 0 0"
                                           Revenue="24" Percentage="-10"
                                           IconSource="/Resources/Images/Export_light.png"></statistic:UCStatisticCard>
           </Grid>
+          
+          <!--Biểu đồ doanh thu-->
+          <Grid Grid.Row="0" Grid.Column="1" Margin="15 10 5 5" Background="#FFF7F7F7">
+               <Grid.RowDefinitions>
+                    <RowDefinition Height="55"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+               </Grid.RowDefinitions>
+
+               <!--Tiêu đề-->
+               <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                         <ColumnDefinition></ColumnDefinition>
+                         <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="0" Margin="15 0 10 12">
+                         <Border Width="25" Height="25" VerticalAlignment="Center"
+                                 Background="#FF125593">
+                              <Image Source="/Resources/Images/Waterfall_light.png"
+                                     Margin="2"/>
+                         </Border>
+                         <TextBlock Text="Biểu đồ doanh thu" FontSize="15" FontWeight="Bold" 
+                                    VerticalAlignment="Center" Margin="10,0,0,0" Foreground="#FF125593"
+                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+                    </StackPanel>
+               </Grid>
+
+               <!--Biểu đồ-->
+               <lvc:CartesianChart Grid.Row="1" x:Name="chart" Margin="35 -15 0 30"
+                                   Series="{Binding DoanhThuSeries}"
+                                   XAxes="{Binding XAxes}" YAxes="{Binding YAxes}">
+               </lvc:CartesianChart>
+
+               <StackPanel Grid.Row="1"
+                          VerticalAlignment="Center" Orientation="Vertical">
+                    <TextBlock Text="thu" Margin="15 2 20 10" FontSize="15" FontWeight="SemiBold" Foreground="#FF125593"
+                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk">
+                         <TextBlock.RenderTransform>
+                              <RotateTransform Angle="270"></RotateTransform>
+                         </TextBlock.RenderTransform>
+                    </TextBlock>
+                    <TextBlock Text="Doanh" Margin="15 20 20 20" FontSize="15" FontWeight="SemiBold" Foreground="#FF125593"
+                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk">
+                         <TextBlock.RenderTransform>
+                              <RotateTransform Angle="270"></RotateTransform>
+                         </TextBlock.RenderTransform>
+                    </TextBlock>
+               </StackPanel>
+
+               <StackPanel Grid.Row="1" Margin=" 0 0 0 10"
+                          VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock Text="Thời" Margin="0" FontSize="15" FontWeight="SemiBold" Foreground="#FF125593"
+                               FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk">
+                    </TextBlock>
+                    <TextBlock Text="gian" Margin="5 0 0 0" FontSize="15" FontWeight="SemiBold" Foreground="#FF125593"
+                               FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk">
+                    </TextBlock>
+               </StackPanel>
+          </Grid>
+
+          <!--Biểu đồ top lợi nhuận-->
+          <Grid Grid.Row="1" Grid.Column="0" Margin="5 10 5 15" Background="#FFF7F7F7">
+               <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="8*"></RowDefinition>
+               </Grid.RowDefinitions>
+
+               <!--Tiêu đề-->
+               <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                         <ColumnDefinition></ColumnDefinition>
+                         <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="0" Margin="18 0 10 0">
+                         <Border Width="25" Height="25" VerticalAlignment="Center"
+                                 Background="#FF125593">
+                              <Image Source="/Resources/Images/Waterfall_light.png"
+                                     Margin="2"/>
+                         </Border>
+                         <TextBlock Text="Top lợi nhuận" FontSize="15" FontWeight="Bold" 
+                                    VerticalAlignment="Center" Margin="10,0,0,0" Foreground="#FF125593"
+                                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+                    </StackPanel>
+               </Grid>
+
+               <!--Biểu đồ top lợi nhuận-->
+               <Grid Grid.Row="1" Margin="0 0 10 10">
+                    <local:UCProfitChart x:Name="profitChart"></local:UCProfitChart>
+               </Grid>
+          </Grid>
+
+          <!--Bảng lịch sử nhập hàng-->
+          <importHistory:UCTableImportHistory Grid.Row="1" Grid.Column="1" Margin="15 10 5 15">
+          </importHistory:UCTableImportHistory>
           
      </Grid>
 </UserControl>
