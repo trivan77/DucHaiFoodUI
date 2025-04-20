@@ -60,6 +60,7 @@ namespace CNPMNC.ViewModels
           private ICommand mShowOverview;
           private ICommand mShowStaffList;
           private ICommand mShowStoreList;
+          private ICommand mShowProductList;
           private ICommand mShowTicketChild;
           private ICommand mShowImportTicket;
           private ICommand mShowExportTicket;
@@ -100,6 +101,18 @@ namespace CNPMNC.ViewModels
                          mShowStoreList = new RelayCommand(ShowStoreList);
                     }
                     return mShowStoreList;
+               }
+          }
+
+          public ICommand ShowProductListCommand
+          {
+               get
+               {
+                    if (mShowProductList == null)
+                    {
+                         mShowProductList = new RelayCommand(ShowProductList);
+                    }
+                    return mShowProductList;
                }
           }
 
@@ -168,6 +181,12 @@ namespace CNPMNC.ViewModels
           {
                if (CurrentView is UCStoreList) return;
                CurrentView = new UCStoreList();
+          }
+
+          private void ShowProductList()
+          {
+               if (CurrentView is UCProductList) return;
+               CurrentView = new UCProductList();
           }
 
           private void ShowTicketChild()

@@ -28,6 +28,9 @@ namespace CNPMNC.Views
 
                vmMainWindow = new VMMainWindow();
                DataContext = vmMainWindow;
+
+               vmMainWindow.ShowOverviewCommand.Execute(null);
+               btnOverview.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
           }
 
           private void NavbarButton_Click(object sender, RoutedEventArgs e)

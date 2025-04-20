@@ -1,4 +1,4 @@
-﻿using CNPMNC.Models.ForOverview.ImportHistoryTable;
+﻿using CNPMNC.Models;
 using CNPMNC.Utils;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
@@ -19,23 +19,23 @@ namespace CNPMNC.ViewModels
      {
           public VMOverview()
           {
-               ImportHistoryRows = new ObservableCollection<ImportHistoryRowModel>();
+               ImportHistoryRows = new ObservableCollection<PhieuNhap>();
                for(int i = 1; i < 50; i++)
                {
-                    AddRow(new ImportHistoryRowModel
-                    {
-                         MaPhieu = "MaPhieu_"+i.ToString(),
-                         ThoiGian = "09/09/24",
-                         Kho = "Kho Nam Từ Liêm",
-                         ThanhTien = i.ToString()+"00.000.000",
-                         NguoiTao = "Trần Bảo Trí"
-                    });
+                    //AddRow(new PhieuNhap
+                    //{
+                    //     MaPhieu = "MaPhieu_"+i.ToString(),
+                    //     ThoiGian = "09/09/24",
+                    //     Kho = "Kho Nam Từ Liêm",
+                    //     ThanhTien = i.ToString()+"00.000.000",
+                    //     NguoiTao = "Trần Bảo Trí"
+                    //});
                }
           }
 
           #region Biến
 
-          public ObservableCollection<ImportHistoryRowModel> ImportHistoryRows { get; set; }
+          public ObservableCollection<PhieuNhap> ImportHistoryRows { get; set; }
           public ISeries[] DoanhThuSeries { get; set; } = new ISeries[]
           {
                new ScatterSeries<int,RectangleGeometry>
@@ -70,7 +70,7 @@ namespace CNPMNC.ViewModels
           #endregion
 
           #region Function
-          public void AddRow(ImportHistoryRowModel row)
+          public void AddRow(PhieuNhap row)
           {
                ImportHistoryRows.Add(row);
           }

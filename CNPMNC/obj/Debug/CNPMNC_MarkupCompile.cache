@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\App.xaml
-12293738433
+13954037666
 5-1531369729
-22493446183
+25947329276
 341870977985
-Views\Component\ForOverview\ImportHistoryTable\UCRowImportHistory.xaml;Views\Component\ForOverview\ImportHistoryTable\UCTableImportHistory.xaml;Views\Component\ForOverview\UCStatisticCard.xaml;Views\Usercontrol\UCExportTicketList.xaml;Views\Usercontrol\UCOverview.xaml;Views\Component\ForOverview\UCProfitChart.xaml;Views\Usercontrol\UCStaffList.xaml;Views\Usercontrol\UCStoreList.xaml;Views\Usercontrol\UCImportTicketList.xaml;Views\Usercontrol\UCTransTicketList.xaml;Views\VLogIn.xaml;Views\VMainWindow.xaml;
+Views\Component\ForOverview\ImportHistoryTable\UCRowImportHistory.xaml;Views\Component\ForOverview\ImportHistoryTable\UCTableImportHistory.xaml;Views\Component\ForOverview\UCStatisticCard.xaml;Views\Usercontrol\UCExportTicketList.xaml;Views\Usercontrol\UCOverview.xaml;Views\Component\ForOverview\UCProfitChart.xaml;Views\Usercontrol\UCProductList.xaml;Views\Usercontrol\UCStaffList.xaml;Views\Usercontrol\UCStoreList.xaml;Views\Usercontrol\UCImportTicketList.xaml;Views\Usercontrol\UCTransTicketList.xaml;Views\VLogIn.xaml;Views\VMainWindow.xaml;
 
 False
 

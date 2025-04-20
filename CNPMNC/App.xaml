@@ -91,5 +91,98 @@
                     </Setter.Value>
                </Setter>
           </Style>
+
+          <Style x:Key="SearchTextBoxStyle" TargetType="TextBox">
+               <Setter Property="FontSize" Value="13"/>
+               <Setter Property="FontWeight" Value="SemiBold"/>
+               <Setter Property="FontFamily" Value="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+               <Setter Property="Foreground" Value="#FF125593"/>
+               <Setter Property="Padding" Value="5"/>
+               <Setter Property="BorderBrush" Value="#FF125593"/>
+               <Setter Property="BorderThickness" Value="2"/>
+               <Setter Property="VerticalContentAlignment" Value="Center"/>
+               <Setter Property="Template">
+                    <Setter.Value>
+                         <ControlTemplate TargetType="TextBox">
+                              <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      Background="{TemplateBinding Background}">
+                                   <Grid>
+                                        <!-- Nội dung nhập -->
+                                        <ScrollViewer x:Name="PART_ContentHost" Margin="0" Padding="{TemplateBinding Padding}" />
+
+                                        <!-- Placeholder -->
+                                        <TextBlock x:Name="Placeholder" Text="Tìm kiếm ..."
+                                                   Padding="{TemplateBinding Padding}" Foreground="Gray"
+                                                   Opacity="0.6" IsHitTestVisible="False"
+                                                   FontSize="13" FontWeight="SemiBold"
+                                                   FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Visibility="Collapsed"/>
+                                   </Grid>
+                              </Border>
+                              <ControlTemplate.Triggers>
+                                   <!-- Hiện placeholder khi Text rỗng -->
+                                   <Trigger Property="Text" Value="">
+                                        <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                   </Trigger>
+
+                                   <!-- Ẩn placeholder khi có focus (tránh nhấp nháy khi nhập nhanh) -->
+                                   <Trigger Property="IsFocused" Value="True">
+                                        <Setter TargetName="Placeholder" Property="Visibility" Value="Collapsed"/>
+                                   </Trigger>
+                              </ControlTemplate.Triggers>
+                         </ControlTemplate>
+                    </Setter.Value>
+               </Setter>
+          </Style>
+
+          <Style x:Key="MainButtonStyle" TargetType="Button">
+               <Setter Property="Background" Value="#FF125593"/>
+               <Setter Property="FontSize" Value="13"/>
+               <Setter Property="FontWeight" Value="SemiBold"/>
+               <Setter Property="FontFamily" Value="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+               <Setter Property="Foreground" Value="White"/>
+               <Setter Property="BorderThickness" Value="0"/>
+               <Setter Property="Padding" Value="8,4"/>
+               <Setter Property="Cursor" Value="Hand"/>
+               <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+               <Setter Property="Template">
+                    <Setter.Value>
+                         <ControlTemplate TargetType="Button">
+                              <Border Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}">
+                                   <ContentPresenter HorizontalAlignment="Center"
+                                                     VerticalAlignment="Center"
+                                                     RecognizesAccessKey="True"/>
+                              </Border>
+                              <ControlTemplate.Triggers>
+                                   <!-- Hover -->
+                                   <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="White"/>
+                                        <Setter Property="Foreground" Value="#FF125593"/>
+                                        <Setter Property="BorderThickness" Value="2"/>
+                                        <Setter Property="BorderBrush" Value="#FF125593"/>
+                                   </Trigger>
+
+                                   <!-- Click -->
+                                   <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="White"/>
+                                        <Setter Property="Foreground" Value="#FF125593"/>
+                                        <Setter Property="BorderThickness" Value="2"/>
+                                        <Setter Property="BorderBrush" Value="#FF125593"/>
+                                   </Trigger>
+
+                                   <!-- Disabled (optional) -->
+                                   <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Opacity" Value="0.5"/>
+                                        <Setter Property="Cursor" Value="Arrow"/>
+                                   </Trigger>
+                              </ControlTemplate.Triggers>
+                         </ControlTemplate>
+                    </Setter.Value>
+               </Setter>
+          </Style>
      </Application.Resources>
 </Application>

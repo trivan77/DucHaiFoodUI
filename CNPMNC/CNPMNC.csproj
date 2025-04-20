@@ -116,7 +116,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\ForOverview\ImportHistoryTable\ImportHistoryRowModel.cs" />
+    <Compile Include="Models\LoaiSanPham.cs" />
+    <Compile Include="Models\PhieuNhap.cs" />
+    <Compile Include="Models\SanPham.cs" />
     <Compile Include="Utils\NotifyBase.cs" />
     <Compile Include="Utils\RelayCommand.cs" />
     <Compile Include="Utils\SystemNotify.cs" />
@@ -139,6 +141,9 @@
     </Compile>
     <Compile Include="Views\Component\ForOverview\UCProfitChart.xaml.cs">
       <DependentUpon>UCProfitChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrol\UCProductList.xaml.cs">
+      <DependentUpon>UCProductList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrol\UCStaffList.xaml.cs">
       <DependentUpon>UCStaffList.xaml</DependentUpon>
@@ -176,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Component\ForOverview\UCProfitChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Usercontrol\UCProductList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

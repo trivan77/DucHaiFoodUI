@@ -123,3 +123,5 @@ D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForOverview\I
 D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForOverview\ImportHistoryTable\UCTableImportHistory.baml
 D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForOverview\UCStatisticCard.baml
 D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForOverview\UCProfitChart.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Usercontrol\UCProductList.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Usercontrol\UCProductList.baml
