@@ -184,5 +184,66 @@
                     </Setter.Value>
                </Setter>
           </Style>
+
+          <Style x:Key="CustomMenuItemStyle" TargetType="MenuItem">
+               <Setter Property="Foreground" Value="#FF125593"/>
+               <Setter Property="Background" Value="White"/>
+               <Setter Property="FontWeight" Value="SemiBold"/>
+               <Setter Property="FontFamily" Value="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+               <Setter Property="FontSize" Value="13"/>
+               <Setter Property="BorderBrush" Value="#FF125593"/>
+               <Setter Property="BorderThickness" Value="2,2,2,2"/>
+               <Setter Property="Margin" Value="0 0 0 2"/>
+               <Setter Property="Cursor" Value="Hand"/>
+               <Setter Property="Width" Value="120"/>
+               <Setter Property="Height" Value="25"/>
+               <Setter Property="Template">
+                    <Setter.Value>
+                         <ControlTemplate TargetType="MenuItem">
+                              <Border Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}">
+                                   <ContentPresenter ContentSource="Header" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                              </Border>
+                              <ControlTemplate.Triggers>
+                                   <!-- Hover -->
+                                   <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF125593"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                   </Trigger>
+                                   <!-- Click -->
+                                   <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#FF125593"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                   </Trigger>
+                                   <!-- Disabled -->
+                                   <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Opacity" Value="0.5"/>
+                                   </Trigger>
+                              </ControlTemplate.Triggers>
+                         </ControlTemplate>
+                    </Setter.Value>
+               </Setter>
+          </Style>
+
+          <Style x:Key="RoleBorderStyle" TargetType="Border">
+               <Setter Property="CornerRadius" Value="5"/>
+               <Setter Property="Background" Value="#FFF7F7F7" />
+               <Setter Property="SnapsToDevicePixels" Value="True" />
+               <Style.Triggers>
+                    <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TextBlock}}" Value="Admin">
+                         <Setter Property="Background" Value="#FFDE6767" />
+                         <!-- đỏ nhạt -->
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TextBlock}}" Value="Phụ trách kho">
+                         <Setter Property="Background" Value="#FF409067" />
+                         <!-- xanh lá -->
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TextBlock}}" Value="Nhân viên">
+                         <Setter Property="Background" Value="#DD025E86" />
+                         <!-- xanh dương -->
+                    </DataTrigger>
+               </Style.Triggers>
+          </Style>
      </Application.Resources>
 </Application>

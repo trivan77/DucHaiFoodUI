@@ -1,5 +1,4 @@
-﻿using CNPMNC.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,20 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CNPMNC.Views.Usercontrol
+namespace CNPMNC.Views.Component
 {
      /// <summary>
      /// Interaction logic for UCStaffList.xaml
      /// </summary>
-     public partial class UCStaffList : UserControl
+     public partial class UCRowStaffList : UserControl
      {
-          VMStaffList vmStaffList;
-          public UCStaffList()
+          public UCRowStaffList()
           {
                InitializeComponent();
+          }
 
-               vmStaffList = new VMStaffList();
-               DataContext = vmStaffList;
+          private void Edit_Click(object sender, RoutedEventArgs e)
+          {
+
+          }
+
+          private void Delete_Click(object sender, RoutedEventArgs e)
+          {
+
           }
      }
 }

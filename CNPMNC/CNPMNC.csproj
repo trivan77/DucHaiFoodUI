@@ -116,14 +116,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\ChiTietPhieuDieuChuyen.cs" />
+    <Compile Include="Models\ChiTietPhieuNhap.cs" />
+    <Compile Include="Models\ChiTietPhieuXuat.cs" />
+    <Compile Include="Models\ChiTietSanPham.cs" />
+    <Compile Include="Models\HeThongKho.cs" />
     <Compile Include="Models\LoaiSanPham.cs" />
+    <Compile Include="Models\Rows\RowStaffList.cs" />
+    <Compile Include="Models\Rows\RowImportHistory.cs" />
+    <Compile Include="Models\NhanVien.cs" />
+    <Compile Include="Models\PhieuDieuChuyen.cs" />
     <Compile Include="Models\PhieuNhap.cs" />
+    <Compile Include="Models\PhieuXuat.cs" />
     <Compile Include="Models\SanPham.cs" />
     <Compile Include="Utils\NotifyBase.cs" />
     <Compile Include="Utils\RelayCommand.cs" />
     <Compile Include="Utils\SystemNotify.cs" />
     <Compile Include="ViewModels\VMMainWindow.cs" />
     <Compile Include="ViewModels\VMOverview.cs" />
+    <Compile Include="ViewModels\VMStaffList.cs" />
     <Compile Include="Views\Component\ForOverview\ImportHistoryTable\UCRowImportHistory.xaml.cs">
       <DependentUpon>UCRowImportHistory.xaml</DependentUpon>
     </Compile>
@@ -132,6 +143,12 @@
     </Compile>
     <Compile Include="Views\Component\ForOverview\UCStatisticCard.xaml.cs">
       <DependentUpon>UCStatisticCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Component\UCRowProductList.xaml.cs">
+      <DependentUpon>UCRowProductList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Component\UCRowStaffList.xaml.cs">
+      <DependentUpon>UCRowStaffList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrol\UCExportTicketList.xaml.cs">
       <DependentUpon>UCExportTicketList.xaml</DependentUpon>
@@ -169,6 +186,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Component\ForOverview\UCStatisticCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Component\UCRowProductList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Component\UCRowStaffList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

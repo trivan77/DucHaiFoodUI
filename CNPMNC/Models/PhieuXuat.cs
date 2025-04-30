@@ -1,9 +1,10 @@
-namespace CNPMNC.Models{
-     public class PhieuNhap
+namespace CNPMNC.Models
+{
+     public class PhieuXuat
      {
-          public int MaPn { get; set; }
+          public int MaPx { get; set; }
           public int MaNv { get; set; }
-          public string NgayNhap { get; set; }
+          public string NgayXuat { get; set; }
           public int MaKho { get; set; }
           public decimal TongTien { get; set; }
      }
