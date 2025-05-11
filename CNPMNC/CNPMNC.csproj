@@ -52,6 +52,9 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\PresentationFramework.4.6.0\lib\PresentationFramework.dll</HintPath>
     </Reference>
@@ -116,10 +119,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\ApiResult.cs" />
     <Compile Include="Models\ChiTietPhieuDieuChuyen.cs" />
     <Compile Include="Models\ChiTietPhieuNhap.cs" />
     <Compile Include="Models\ChiTietPhieuXuat.cs" />
     <Compile Include="Models\ChiTietSanPham.cs" />
+    <Compile Include="Models\DataSync\HeThongKhoSyncModel.cs" />
     <Compile Include="Models\HeThongKho.cs" />
     <Compile Include="Models\LoaiSanPham.cs" />
     <Compile Include="Models\Rows\RowStaffList.cs" />
@@ -144,11 +149,14 @@
     <Compile Include="Views\Component\ForOverview\UCStatisticCard.xaml.cs">
       <DependentUpon>UCStatisticCard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Component\UCRowProductList.xaml.cs">
+    <Compile Include="Views\Component\ForTable\UCRowProductList.xaml.cs">
       <DependentUpon>UCRowProductList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Component\UCRowStaffList.xaml.cs">
+    <Compile Include="Views\Component\ForTable\UCRowStaffList.xaml.cs">
       <DependentUpon>UCRowStaffList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Component\VAddStaff.xaml.cs">
+      <DependentUpon>VAddStaff.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrol\UCExportTicketList.xaml.cs">
       <DependentUpon>UCExportTicketList.xaml</DependentUpon>
@@ -189,11 +197,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Component\UCRowProductList.xaml">
+    <Page Include="Views\Component\ForTable\UCRowProductList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Component\UCRowStaffList.xaml">
+    <Page Include="Views\Component\ForTable\UCRowStaffList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Component\VAddStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

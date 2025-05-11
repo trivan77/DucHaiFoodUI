@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CNPMNC.Views.Component
+namespace CNPMNC.Views.Component.ForTable
 {
      /// <summary>
-     /// Interaction logic for UCRowProductList.xaml
+     /// Interaction logic for UCStaffList.xaml
      /// </summary>
-     public partial class UCRowProductList : UserControl
+     public partial class UCRowStaffList : UserControl
      {
-          public UCRowProductList()
+          public UCRowStaffList()
           {
                InitializeComponent();
           }

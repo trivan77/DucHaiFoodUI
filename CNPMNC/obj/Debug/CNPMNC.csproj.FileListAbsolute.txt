@@ -182,3 +182,11 @@ E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\bin\Debug\System.ValueTuple.xml
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Usercontrol\UCProductList.baml
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\UCRowStaffList.g.cs
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\UCRowStaffList.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowStaffList.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowProductList.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowStaffList.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowProductList.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\VAddStaff.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\VAddStaff.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\bin\Debug\Newtonsoft.Json.dll
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\bin\Debug\Newtonsoft.Json.xml

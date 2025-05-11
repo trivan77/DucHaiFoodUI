@@ -12,5 +12,6 @@ namespace CNPMNC.Models
           public string ChucVu { get; set; }
           public string MatKhau { get; set; }
           public string NgayTuyenDung { get; set; }
+          public string MaKho { get; set; }
      }
 }

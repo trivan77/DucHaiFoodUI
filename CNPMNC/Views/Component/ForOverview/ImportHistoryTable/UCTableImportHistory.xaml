@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CNPMNC.Views.Component.ForOverview.ImportHistoryTable"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+     <Grid>
           <StackPanel>
                <!-- Header -->
                <Grid Background="#FF125593" Height="40">
@@ -35,7 +35,7 @@
 
                <!-- Body -->
                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Height="400">
-                    <ItemsControl ItemsSource="{Binding ImportHistoryRows}">
+                    <ItemsControl ItemsSource="{Binding ImportHistoryRows}" Loaded="ItemsControl_Loaded">
                          <ItemsControl.ItemTemplate>
                               <DataTemplate>
                                    <local:UCRowImportHistory Margin="0 5 0 0" Height="40"/>

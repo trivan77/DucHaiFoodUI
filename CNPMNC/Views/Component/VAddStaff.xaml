@@ -1,0 +1,150 @@
+﻿<Window x:Class="CNPMNC.Views.Component.VAddStaff"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CNPMNC.Views.Component"
+        mc:Ignorable="d"
+        Title="Phần mềm quản lý cửa hàng - Đức Hải Foods - Thêm nhân viên mới" Height="570" Width="850"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+     <Grid>
+          <Grid.RowDefinitions>
+               <RowDefinition Height="40"></RowDefinition>
+               <RowDefinition Height="30"></RowDefinition>
+               <RowDefinition Height="50"></RowDefinition>
+               <RowDefinition Height="30"></RowDefinition>
+               <RowDefinition Height="50"></RowDefinition>
+               <RowDefinition Height="30"></RowDefinition>
+               <RowDefinition Height="50"></RowDefinition>
+               <RowDefinition Height="30"></RowDefinition>
+               <RowDefinition Height="50"></RowDefinition>
+               <RowDefinition Height="30"></RowDefinition>
+               <RowDefinition Height="50"></RowDefinition>
+               <RowDefinition Height="70"></RowDefinition>
+               <RowDefinition></RowDefinition>
+          </Grid.RowDefinitions>
+
+          <Grid.ColumnDefinitions>
+               <ColumnDefinition></ColumnDefinition>
+               <ColumnDefinition></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+
+          <!--Tiêu đề-->
+          <TextBlock Grid.ColumnSpan="2" Text="Thêm người dùng" 
+                     FontSize="20" FontWeight="Bold" Foreground="#FF125593"
+                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                     HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
+          <!--Form điền-->
+          <TextBlock Grid.Row="1" Grid.Column="0" Text="Họ và tên"
+                     FontSize="15" FontWeight="Bold" Foreground="#FF125593"
+                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                     Margin="25 5 0 5"></TextBlock>
+          <TextBox Grid.Row="2" Grid.Column="0" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập họ và tên"
+                   Text="{Binding NhanVienAdded.TenNv}"
+                   Margin="25 5"></TextBox>
+
+          <TextBlock Grid.Row="3" Grid.Column="0" Text="Số điện thoại"
+                     FontSize="15" FontWeight="Bold" Foreground="#FF125593"
+                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                     Margin="25 5 0 5"></TextBlock>
+          <TextBox Grid.Row="4" Grid.Column="0" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập số điện thoại"
+                   Text="{Binding NhanVienAdded.DienThoai}"
+                   Margin="25 5"></TextBox>
+
+          <TextBlock Grid.Row="5" Grid.Column="0" Text="Giới tính"
+                     FontSize="15" FontWeight="Bold" Foreground="#FF125593"
+                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                     Margin="25 5 0 5"></TextBlock>
+          <ComboBox Name="cbxGioiTinh" Grid.Row="6" Grid.Column="0" Background="White" BorderBrush="#FF718BAE" Tag="Chọn giới tính"
+                    FontSize="14" FontWeight="Bold" Foreground="#FF718BAE"
+                    VerticalContentAlignment="Center"
+                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                   SelectedItem="{Binding NhanVienAdded.GioiTinh}"
+                    Margin="25 5" Cursor="Hand"></ComboBox>
+
+          <TextBlock Grid.Row="7" Grid.Column="0" Text="CCCD/CMND"
+                     FontSize="15" FontWeight="Bold" Foreground="#FF125593"
+                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                     Margin="25 5 0 5"></TextBlock>
+          <TextBox Grid.Row="8" Grid.Column="0" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập số CCCD/CMND"
+                   Text="{Binding NhanVienAdded.SoCmnd}"
+                   Margin="25 5"></TextBox>
+
+          <TextBlock Grid.Row="9" Grid.Column="0" Text="Địa chỉ"
+                     FontSize="15" FontWeight="Bold" Foreground="#FF125593"
+                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                     Margin="25 5 0 5"></TextBlock>
+          <TextBox Grid.Row="10" Grid.Column="0" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập địa chỉ"
+                   Text="{Binding NhanVienAdded.DiaChi}"
+                   Margin="25 5"/>
+
+          <TextBlock Grid.Row="1" Grid.Column="1" Text="Username"
+                     FontSize="15" FontWeight="Bold" Foreground="#FF125593"
+                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                     Margin="25 5 0 5"></TextBlock>
+          <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập username"
+                   Text="{Binding NhanVienAdded.Username}"
+                   Margin="25 5"></TextBox>
+
+          <TextBlock Grid.Row="3" Grid.Column="1" Text="Mật khẩu"
+                     FontSize="15" FontWeight="Bold" Foreground="#FF125593"
+                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                     Margin="25 5 0 5"></TextBlock>
+          <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập mật khẩu"
+                   Text="{Binding NhanVienAdded.MatKhau}"
+                   Margin="25 5"></TextBox>
+
+          <TextBlock Grid.Row="5" Grid.Column="1" Text="Kho"
+                     FontSize="15" FontWeight="Bold" Foreground="#FF125593"
+                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                     Margin="25 5 0 5"></TextBlock>
+          <ComboBox Name="cbxKho" Grid.Row="6" Grid.Column="1" Background="White" BorderBrush="#FF718BAE" Tag="Chọn giới tính"
+                    FontSize="14" FontWeight="Bold" Foreground="#FF718BAE"
+                    ItemsSource="{Binding DanhSachTenKho}" VerticalContentAlignment="Center"
+                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                    SelectedItem="{Binding KhoSelected}"
+                    Margin="25 5" Cursor="Hand" DropDownOpened="cbxKho_DropDownOpened"></ComboBox>
+
+          <TextBlock Grid.Row="7" Grid.Column="1" Text="Chức vụ"
+                     FontSize="15" FontWeight="Bold" Foreground="#FF125593"
+                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                     Margin="25 5 0 5"></TextBlock>
+          <ComboBox Name="cbxChucVu" Grid.Row="8" Grid.Column="1" Background="White" BorderBrush="#FF718BAE" Tag="Chọn giới tính"
+                    FontSize="14" FontWeight="Bold" Foreground="#FF718BAE"
+                    VerticalContentAlignment="Center"
+                    FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                    SelectedItem="{Binding NhanVienAdded.ChucVu}"
+                    Margin="25 5" Cursor="Hand"></ComboBox>
+
+          <TextBlock Grid.Row="9" Grid.Column="1" Text="Ngày tuyển dụng"
+                     FontSize="15" FontWeight="Bold" Foreground="#FF125593"
+                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                     Margin="25 5 0 5"></TextBlock>
+          <DatePicker Grid.Row="10" Grid.Column="1" VerticalContentAlignment="Center" 
+                      FontSize="14" FontWeight="SemiBold" Foreground="#FF125593"
+                      FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                      SelectedDate="{Binding NhanVienAdded.NgayTuyenDung}"
+                      Cursor="Hand"
+                   Margin="25 5"></DatePicker>
+
+          <!--Button Thêm và đóng-->
+          <Button Grid.Row="11" Grid.Column="0"
+                  Style="{StaticResource MainButtonStyle}" Margin="25 15"
+                  Content="Thêm mới" Command="{Binding AddStaffCommand}"></Button>
+          <Button Grid.Row="11" Grid.Column="1"
+                  Style="{StaticResource CloseButtonStyle}" Margin="25 15"
+                  Content="Đóng"></Button>
+
+     </Grid>
+</Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNPMNC.Models.Rows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,11 +26,14 @@ namespace CNPMNC.Views.Component.ForOverview.ImportHistoryTable
                InitializeComponent();
           }
 
-          public event EventHandler ChiTietClicked;
+          public event EventHandler<int> ChiTietClicked;
 
           private void ChiTiet_Click(object sender, RoutedEventArgs e)
           {
-               ChiTietClicked?.Invoke(this, EventArgs.Empty);
+               if (DataContext is RowImportHistory model)
+               {
+                    ChiTietClicked?.Invoke(this, model.MaPhieu);
+               }
           }
      }
 }

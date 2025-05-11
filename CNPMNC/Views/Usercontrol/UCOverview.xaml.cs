@@ -30,6 +30,14 @@ namespace CNPMNC.Views.Usercontrol
 
                profitChart.Values = vm.Values;
                profitChart.Legends = vm.Legends;
+
+               tableImport.ChiTietClicked += TableImport_ChiTietClicked;
+          }
+
+          private void TableImport_ChiTietClicked(object sender, int maPhieu)
+          {
+               MessageBox.Show($"Chi tiết được click, mã phiếu: {maPhieu}");
+               // hoặc mở window mới tại đây, truyền maPhieu vào
           }
      }
 }

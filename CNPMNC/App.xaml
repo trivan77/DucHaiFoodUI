@@ -137,6 +137,90 @@
                </Setter>
           </Style>
 
+          <Style x:Key="InputTextBoxStyle" TargetType="TextBox">
+               <Setter Property="FontSize" Value="14"/>
+               <Setter Property="FontWeight" Value="SemiBold"/>
+               <Setter Property="FontFamily" Value="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+               <Setter Property="Foreground" Value="#FF718BAE"/>
+               <Setter Property="Padding" Value="5"/>
+               <Setter Property="BorderBrush" Value="#FF718BAE"/>
+               <Setter Property="BorderThickness" Value="1"/>
+               <Setter Property="VerticalContentAlignment" Value="Center"/>
+               <Setter Property="Template">
+                    <Setter.Value>
+                         <ControlTemplate TargetType="TextBox">
+                              <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      Background="{TemplateBinding Background}">
+                                   <Grid>
+                                        <!-- Nội dung nhập -->
+                                        <ScrollViewer x:Name="PART_ContentHost" Margin="0" Padding="{TemplateBinding Padding}" />
+
+                                        <!-- Placeholder -->
+                                        <TextBlock x:Name="Placeholder" Text="{TemplateBinding Tag}"
+                                                   Padding="{TemplateBinding Padding}" Foreground="Gray"
+                                                   Opacity="0.6" IsHitTestVisible="False"
+                                                   FontSize="13" FontWeight="SemiBold"
+                                                   FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Visibility="Collapsed"/>
+                                   </Grid>
+                              </Border>
+                              <ControlTemplate.Triggers>
+                                   <!-- Hiện placeholder khi Text rỗng -->
+                                   <Trigger Property="Text" Value="">
+                                        <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                                   </Trigger>
+
+                                   <!-- Ẩn placeholder khi có focus (tránh nhấp nháy khi nhập nhanh) -->
+                                   <Trigger Property="IsFocused" Value="True">
+                                        <Setter TargetName="Placeholder" Property="Visibility" Value="Collapsed"/>
+                                   </Trigger>
+                              </ControlTemplate.Triggers>
+                         </ControlTemplate>
+                    </Setter.Value>
+               </Setter>
+          </Style>
+
+          <Style TargetType="DatePickerTextBox">
+               <Setter Property="IsEnabled" Value="False"></Setter>
+               <Setter Property="Template">
+                    <Setter.Value>
+                         <ControlTemplate TargetType="DatePickerTextBox">
+                              <Grid>
+                                   <TextBox x:Name="TextBox"
+                             Text="{TemplateBinding Text}"
+                             Background="{TemplateBinding Background}"
+                             BorderThickness="0"
+                             Foreground="{TemplateBinding Foreground}"
+                             Padding="5,0"
+                             VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Left"/>
+
+                                   <TextBlock x:Name="PlaceholderText"
+                               Text="Chọn ngày"
+                               Foreground="Gray"
+                               Opacity="0.6"
+                               IsHitTestVisible="False"
+                               Margin="5,0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Visibility="Collapsed"/>
+                              </Grid>
+
+                              <ControlTemplate.Triggers>
+                                   <Trigger Property="Text" Value="">
+                                        <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                                   </Trigger>
+                                   <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter TargetName="PlaceholderText" Property="Visibility" Value="Collapsed"/>
+                                   </Trigger>
+                              </ControlTemplate.Triggers>
+                         </ControlTemplate>
+                    </Setter.Value>
+               </Setter>
+          </Style>
+
           <Style x:Key="MainButtonStyle" TargetType="Button">
                <Setter Property="Background" Value="#FF125593"/>
                <Setter Property="FontSize" Value="13"/>
@@ -172,6 +256,50 @@
                                         <Setter Property="Foreground" Value="#FF125593"/>
                                         <Setter Property="BorderThickness" Value="2"/>
                                         <Setter Property="BorderBrush" Value="#FF125593"/>
+                                   </Trigger>
+
+                                   <!-- Disabled (optional) -->
+                                   <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Opacity" Value="0.5"/>
+                                        <Setter Property="Cursor" Value="Arrow"/>
+                                   </Trigger>
+                              </ControlTemplate.Triggers>
+                         </ControlTemplate>
+                    </Setter.Value>
+               </Setter>
+          </Style>
+
+          <Style x:Key="CloseButtonStyle" TargetType="Button">
+               <Setter Property="Background" Value="LightGray"/>
+               <Setter Property="FontSize" Value="13"/>
+               <Setter Property="FontWeight" Value="SemiBold"/>
+               <Setter Property="FontFamily" Value="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+               <Setter Property="Foreground" Value="#FF125593"/>
+               <Setter Property="BorderThickness" Value="0"/>
+               <Setter Property="Padding" Value="8,4"/>
+               <Setter Property="Cursor" Value="Hand"/>
+               <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+               <Setter Property="Template">
+                    <Setter.Value>
+                         <ControlTemplate TargetType="Button">
+                              <Border Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}">
+                                   <ContentPresenter HorizontalAlignment="Center"
+                                                     VerticalAlignment="Center"
+                                                     RecognizesAccessKey="True"/>
+                              </Border>
+                              <ControlTemplate.Triggers>
+                                   <!-- Hover -->
+                                   <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="BorderBrush" Value="Gray"/>
+                                        <Setter Property="BorderThickness" Value="2"/>
+                                   </Trigger>
+
+                                   <!-- Click -->
+                                   <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="BorderBrush" Value="Gray"/>
+                                        <Setter Property="BorderThickness" Value="2"/>
                                    </Trigger>
 
                                    <!-- Disabled (optional) -->
@@ -229,20 +357,19 @@
           <Style x:Key="RoleBorderStyle" TargetType="Border">
                <Setter Property="CornerRadius" Value="5"/>
                <Setter Property="Background" Value="#FFF7F7F7" />
+               <Setter Property="Margin" Value="0 5" />
+               <Setter Property="HorizontalAlignment" Value="Left" />
                <Setter Property="SnapsToDevicePixels" Value="True" />
                <Style.Triggers>
-                    <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TextBlock}}" Value="Admin">
-                         <Setter Property="Background" Value="#FFDE6767" />
-                         <!-- đỏ nhạt -->
-                    </DataTrigger>
-                    <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TextBlock}}" Value="Phụ trách kho">
-                         <Setter Property="Background" Value="#FF409067" />
-                         <!-- xanh lá -->
-                    </DataTrigger>
-                    <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TextBlock}}" Value="Nhân viên">
-                         <Setter Property="Background" Value="#DD025E86" />
-                         <!-- xanh dương -->
-                    </DataTrigger>
+                    <Trigger Property="Tag" Value="Admin">
+                         <Setter Property="Background" Value="#FFDE6767"/>
+                    </Trigger>
+                    <Trigger Property="Tag" Value="Phụ trách kho">
+                         <Setter Property="Background" Value="#FF409067"/>
+                    </Trigger>
+                    <Trigger Property="Tag" Value="Nhân viên">
+                         <Setter Property="Background" Value="#DD025E86"/>
+                    </Trigger>
                </Style.Triggers>
           </Style>
      </Application.Resources>

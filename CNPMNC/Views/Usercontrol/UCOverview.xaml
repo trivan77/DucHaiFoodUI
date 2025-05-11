@@ -137,7 +137,7 @@
           </Grid>
 
           <!--Bảng lịch sử nhập hàng-->
-          <importHistory:UCTableImportHistory Grid.Row="1" Grid.Column="1" Margin="15 10 5 15">
+          <importHistory:UCTableImportHistory x:Name="tableImport" Grid.Row="1" Grid.Column="1" Margin="15 10 5 15">
           </importHistory:UCTableImportHistory>
           
      </Grid>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\
 CNPMNC
 none
 false
 DEBUG;TRACE
-E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\App.xaml
-15-1213658783
-51500958843
-39285521272
-34-2006033735
-Views\Component\ForOverview\ImportHistoryTable\UCRowImportHistory.xaml;Views\Component\ForOverview\ImportHistoryTable\UCTableImportHistory.xaml;Views\Component\ForOverview\UCStatisticCard.xaml;Views\Component\UCRowProductList.xaml;Views\Component\UCRowStaffList.xaml;Views\Usercontrol\UCExportTicketList.xaml;Views\Usercontrol\UCOverview.xaml;Views\Component\ForOverview\UCProfitChart.xaml;Views\Usercontrol\UCProductList.xaml;Views\Usercontrol\UCStaffList.xaml;Views\Usercontrol\UCStoreList.xaml;Views\Usercontrol\UCImportTicketList.xaml;Views\Usercontrol\UCTransTicketList.xaml;Views\VLogIn.xaml;Views\VMainWindow.xaml;
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\App.xaml
+16-859171705
+5-1531369729
+421857707812
+35-2058559518
+Views\Component\ForOverview\ImportHistoryTable\UCRowImportHistory.xaml;Views\Component\ForOverview\ImportHistoryTable\UCTableImportHistory.xaml;Views\Component\ForOverview\UCStatisticCard.xaml;Views\Component\ForTable\UCRowProductList.xaml;Views\Component\ForTable\UCRowStaffList.xaml;Views\Component\VAddStaff.xaml;Views\Usercontrol\UCExportTicketList.xaml;Views\Usercontrol\UCOverview.xaml;Views\Component\ForOverview\UCProfitChart.xaml;Views\Usercontrol\UCProductList.xaml;Views\Usercontrol\UCStaffList.xaml;Views\Usercontrol\UCStoreList.xaml;Views\Usercontrol\UCImportTicketList.xaml;Views\Usercontrol\UCTransTicketList.xaml;Views\VLogIn.xaml;Views\VMainWindow.xaml;
 
 True
 

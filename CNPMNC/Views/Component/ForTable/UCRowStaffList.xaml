@@ -1,33 +1,42 @@
-﻿<UserControl x:Class="CNPMNC.Views.Component.UCRowProductList"
+﻿<UserControl x:Class="CNPMNC.Views.Component.ForTable.UCRowStaffList"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CNPMNC.Views.Component"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
      <Grid Background="#FFF7F7F7">
           <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="50"></ColumnDefinition>
                <ColumnDefinition></ColumnDefinition>
                <ColumnDefinition></ColumnDefinition>
-               <ColumnDefinition Width="1.3*"></ColumnDefinition>
-               <ColumnDefinition Width="1.3*"></ColumnDefinition>
-               <ColumnDefinition Width="1.3*"></ColumnDefinition>
-               <ColumnDefinition Width="100"></ColumnDefinition>
+               <ColumnDefinition></ColumnDefinition>
+               <ColumnDefinition></ColumnDefinition>
+               <ColumnDefinition></ColumnDefinition>
+               <ColumnDefinition Width="150"></ColumnDefinition>
+               <ColumnDefinition Width="50"></ColumnDefinition>
+               <ColumnDefinition Width="16"></ColumnDefinition>
           </Grid.ColumnDefinitions>
-          <TextBlock Grid.Column="0" Text="{Binding MaPhieu}" VerticalAlignment="Center" Margin="13 0 5 0"
+          <TextBlock Grid.Column="0" Text="{Binding STT}" VerticalAlignment="Center" Margin="15 0 0 0"
                      FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
-          <TextBlock Grid.Column="1" Text="{Binding ThoiGian}" VerticalAlignment="Center" Margin="13 0 5 0"
+          <TextBlock Grid.Column="1" Text="{Binding TenNv}" VerticalAlignment="Center" 
                      FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
-          <TextBlock Grid.Column="2" Text="{Binding Kho}" VerticalAlignment="Center" Margin="13 0 5 0"
+          <TextBlock Grid.Column="2" Text="{Binding DienThoai}" VerticalAlignment="Center" 
                      FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
-          <TextBlock Grid.Column="3" Text="{Binding ThanhTien}" VerticalAlignment="Center" Margin="13 0 5 0"
+          <TextBlock Grid.Column="3" Text="{Binding TenKho}" VerticalAlignment="Center" 
                      FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
-          <TextBlock Grid.Column="4" Text="{Binding NguoiTao}" VerticalAlignment="Center" Margin="13 0 5 0"
+          <TextBlock Grid.Column="4" Text="{Binding ThanhTien}" VerticalAlignment="Center" 
                      FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
-          <Button Grid.Column="5" Content="Chi tiết ➝" Margin="10 5"
-                  FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
-                  Background="#FF125593" Foreground="White" BorderThickness="0">
+          <TextBlock Grid.Column="5" Text="{Binding NgayTuyenDung}" VerticalAlignment="Center" 
+                     FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+          <Border Grid.Column="6" Style="{StaticResource RoleBorderStyle}" Tag="{Binding ChucVu}">
+               <TextBlock Grid.Column="6" Text="{Binding ChucVu}" VerticalAlignment="Center"
+                          FontSize="13" Margin=" 10 0 10 0" Foreground="White"
+                          FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+          </Border>
+          <Button Grid.Column="7" Content="..." 
+                  FontSize="14" FontWeight="SemiBold" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
+                  Background="#FFF7F7F7" Foreground="#FF125593" BorderThickness="0">
                <Button.ContextMenu>
                     <ContextMenu Placement="Bottom">
                          <MenuItem Header="Chỉnh sửa" Style="{StaticResource CustomMenuItemStyle}"
