@@ -190,3 +190,15 @@ D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\VAddStaff.g.c
 D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\VAddStaff.baml
 D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\bin\Debug\Newtonsoft.Json.dll
 D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\bin\Debug\Newtonsoft.Json.xml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowStoreList.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowStoreList.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\VAddImportTicket.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\VAddImportTicket.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\FloatingLabelTextBox.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\FloatingLabelTextBox.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\FloatingLabelComboBox.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\FloatingLabelComboBox.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowProductImport.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\VAddProduct.g.cs
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowProductImport.baml
+D:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\obj\Debug\Views\Component\VAddProduct.baml

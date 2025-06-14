@@ -41,6 +41,7 @@ namespace CNPMNC.Views
                btnStaffList.IsChecked = false;
                btnStore.IsChecked = false;
                btnTicket.IsChecked = false;
+               btnProduct.IsChecked = false;
 
                btnImportTicket.IsChecked = false;
                btnExportTicket.IsChecked = false;
@@ -65,6 +66,7 @@ namespace CNPMNC.Views
                btnOverview.IsChecked = false;
                btnStaffList.IsChecked = false;
                btnStore.IsChecked = false;
+               btnProduct.IsChecked = false;
 
                ToggleButton clickedButton = sender as ToggleButton;
                if (clickedButton != null)

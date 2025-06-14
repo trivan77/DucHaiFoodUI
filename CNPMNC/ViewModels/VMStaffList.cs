@@ -21,48 +21,6 @@ namespace CNPMNC.ViewModels
           public VMStaffList()
           {
                StaffListRows = new ObservableCollection<RowStaffList>();
-               for (int i = 1; i < 13; i++)
-               {
-                    if (i % 3 == 0)
-                    {
-                         AddRow(new RowStaffList
-                         {
-                              STT = i,
-                              TenNv = "HovaTen_" + (i + 1).ToString(),
-                              DienThoai = "086899" + i.ToString() + i.ToString() + i.ToString() + i.ToString(),
-                              TenKho = "Kho Nam Từ Liêm",
-                              ThanhTien = (i + 7) * 1000000,
-                              NgayTuyenDung = "30/4/2025",
-                              ChucVu = "Phụ trách kho"
-                         }) ;
-                    }
-                    else if (i == 5)
-                    {
-                         AddRow(new RowStaffList
-                         {
-                              STT = i,
-                              TenNv = "HovaTen_" + (i + 1).ToString(),
-                              DienThoai = "086899" + i.ToString() + i.ToString() + i.ToString() + i.ToString(),
-                              TenKho = "Kho Nam Từ Liêm",
-                              ThanhTien = (i + 7) * 1000000,
-                              NgayTuyenDung = "30/4/2025",
-                              ChucVu = "Admin"
-                         }) ;
-                    }
-                    else
-                    {
-                         AddRow(new RowStaffList
-                         {
-                              STT = i,
-                              TenNv = "HovaTen_" + (i + 1).ToString(),
-                              DienThoai = "086899" + i.ToString() + i.ToString() + i.ToString() + i.ToString(),
-                              TenKho = "Kho Nam Từ Liêm",
-                              ThanhTien = (i + 7) * 1000000,
-                              NgayTuyenDung = "30/4/2025",
-                              ChucVu = "Nhân viên"
-                         });
-                    }
-               }
 
                DanhSachTenKho = new ObservableCollection<string>();
           }
@@ -124,6 +82,16 @@ namespace CNPMNC.ViewModels
                foreach (var item in danhSach) DanhSachTenKho.Add(item);
           }
 
+          public async Task LoadStaffList()
+          {
+               var danhSach = await NhanVienSyncModel.DanhSachNhanVien();
+               StaffListRows.Clear();
+               foreach (var item in danhSach)
+               {
+                    StaffListRows.Add(item);
+               }
+          }
+
           public void AddStaff()
           {
                var url = "http://cong-nghe-phan-mem.asuna.id.vn/api/cong-nghe-phan-mem/nhan-vien/create";
@@ -156,11 +124,21 @@ namespace CNPMNC.ViewModels
                          string result = response.Content.ReadAsStringAsync().Result;
 
                          SystemNotify.SuccessNotify("Thêm người dùng thành công !!!");
+
+                         NhanVienAdded.TenNv = "";
+                         NhanVienAdded.GioiTinh = "";
+                         NhanVienAdded.DienThoai = "";
+                         NhanVienAdded.DiaChi = "";
+                         NhanVienAdded.SoCmnd = "";
+                         NhanVienAdded.ChucVu = "";
+                         NhanVienAdded.Username = "";
+                         NhanVienAdded.MatKhau = "";
+                         NhanVienAdded.NgayTuyenDung = "";
+                         KhoSelected = "";
                     }
                     else
                     {
-                         string error = response.Content.ReadAsStringAsync().Result;
-                         Console.WriteLine("Lỗi: " + error);
+                         SystemNotify.ErrorNotify("Lỗi kết nối với máy chủ !!!");
                     }
                }
           }
@@ -189,11 +167,11 @@ namespace CNPMNC.ViewModels
           {
                get
                {
-                    if (mShowAddStaff == null)
+                    if (mAddStaff == null)
                     {
-                         mShowAddStaff = new RelayCommand(AddStaff);
+                         mAddStaff = new RelayCommand(AddStaff);
                     }
-                    return mShowAddStaff;
+                    return mAddStaff;
                }
           }
           #endregion

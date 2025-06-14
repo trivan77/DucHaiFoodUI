@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNPMNC.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,17 @@ namespace CNPMNC.Views.Usercontrol
      /// </summary>
      public partial class UCProductList : UserControl
      {
+          VMProductList vmProductList;
+
           public UCProductList()
           {
                InitializeComponent();
+
+               vmProductList = VMProductList.Instance;
+               DataContext = vmProductList;
+
+               // Gọi bất đồng bộ sau khi UI load xong
+               this.Loaded += async (s, e) => await vmProductList.LoadProductList();
           }
      }
 }

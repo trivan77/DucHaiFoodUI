@@ -21,7 +21,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Mã phiếu" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk" />
-                    <TextBlock Grid.Column="1" Text="Ngày nhập" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                    <TextBlock Grid.Column="1" Text="Ngày tạo phiếu" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
                     <TextBlock Grid.Column="2" Text="Kho" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />

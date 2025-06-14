@@ -42,7 +42,7 @@
                      HorizontalAlignment="Left" VerticalAlignment="Center"
                      Margin="25 5 0 5"></TextBlock>
           <TextBox Grid.Row="2" Grid.Column="0" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập họ và tên"
-                   Text="{Binding NhanVienAdded.TenNv}"
+                   Text="{Binding NhanVienAdded.TenNv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    Margin="25 5"></TextBox>
 
           <TextBlock Grid.Row="3" Grid.Column="0" Text="Số điện thoại"
@@ -51,7 +51,7 @@
                      HorizontalAlignment="Left" VerticalAlignment="Center"
                      Margin="25 5 0 5"></TextBlock>
           <TextBox Grid.Row="4" Grid.Column="0" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập số điện thoại"
-                   Text="{Binding NhanVienAdded.DienThoai}"
+                   Text="{Binding NhanVienAdded.DienThoai, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    Margin="25 5"></TextBox>
 
           <TextBlock Grid.Row="5" Grid.Column="0" Text="Giới tính"
@@ -63,7 +63,7 @@
                     FontSize="14" FontWeight="Bold" Foreground="#FF718BAE"
                     VerticalContentAlignment="Center"
                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
-                   SelectedItem="{Binding NhanVienAdded.GioiTinh}"
+                   SelectedItem="{Binding NhanVienAdded.GioiTinh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     Margin="25 5" Cursor="Hand"></ComboBox>
 
           <TextBlock Grid.Row="7" Grid.Column="0" Text="CCCD/CMND"
@@ -72,7 +72,7 @@
                      HorizontalAlignment="Left" VerticalAlignment="Center"
                      Margin="25 5 0 5"></TextBlock>
           <TextBox Grid.Row="8" Grid.Column="0" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập số CCCD/CMND"
-                   Text="{Binding NhanVienAdded.SoCmnd}"
+                   Text="{Binding NhanVienAdded.SoCmnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    Margin="25 5"></TextBox>
 
           <TextBlock Grid.Row="9" Grid.Column="0" Text="Địa chỉ"
@@ -81,7 +81,7 @@
                      HorizontalAlignment="Left" VerticalAlignment="Center"
                      Margin="25 5 0 5"></TextBlock>
           <TextBox Grid.Row="10" Grid.Column="0" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập địa chỉ"
-                   Text="{Binding NhanVienAdded.DiaChi}"
+                   Text="{Binding NhanVienAdded.DiaChi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    Margin="25 5"/>
 
           <TextBlock Grid.Row="1" Grid.Column="1" Text="Username"
@@ -90,7 +90,7 @@
                      HorizontalAlignment="Left" VerticalAlignment="Center"
                      Margin="25 5 0 5"></TextBlock>
           <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập username"
-                   Text="{Binding NhanVienAdded.Username}"
+                   Text="{Binding NhanVienAdded.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    Margin="25 5"></TextBox>
 
           <TextBlock Grid.Row="3" Grid.Column="1" Text="Mật khẩu"
@@ -99,7 +99,7 @@
                      HorizontalAlignment="Left" VerticalAlignment="Center"
                      Margin="25 5 0 5"></TextBlock>
           <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource InputTextBoxStyle}" Tag="Nhập mật khẩu"
-                   Text="{Binding NhanVienAdded.MatKhau}"
+                   Text="{Binding NhanVienAdded.MatKhau, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    Margin="25 5"></TextBox>
 
           <TextBlock Grid.Row="5" Grid.Column="1" Text="Kho"
@@ -111,7 +111,7 @@
                     FontSize="14" FontWeight="Bold" Foreground="#FF718BAE"
                     ItemsSource="{Binding DanhSachTenKho}" VerticalContentAlignment="Center"
                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
-                    SelectedItem="{Binding KhoSelected}"
+                    SelectedItem="{Binding KhoSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     Margin="25 5" Cursor="Hand" DropDownOpened="cbxKho_DropDownOpened"></ComboBox>
 
           <TextBlock Grid.Row="7" Grid.Column="1" Text="Chức vụ"
@@ -123,7 +123,7 @@
                     FontSize="14" FontWeight="Bold" Foreground="#FF718BAE"
                     VerticalContentAlignment="Center"
                     FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
-                    SelectedItem="{Binding NhanVienAdded.ChucVu}"
+                    SelectedItem="{Binding NhanVienAdded.ChucVu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     Margin="25 5" Cursor="Hand"></ComboBox>
 
           <TextBlock Grid.Row="9" Grid.Column="1" Text="Ngày tuyển dụng"
@@ -134,9 +134,9 @@
           <DatePicker Grid.Row="10" Grid.Column="1" VerticalContentAlignment="Center" 
                       FontSize="14" FontWeight="SemiBold" Foreground="#FF125593"
                       FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
-                      SelectedDate="{Binding NhanVienAdded.NgayTuyenDung}"
+                      SelectedDate="{Binding NhanVienAdded.NgayTuyenDung, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Cursor="Hand"
-                   Margin="25 5"></DatePicker>
+                      Margin="25 5"></DatePicker>
 
           <!--Button Thêm và đóng-->
           <Button Grid.Row="11" Grid.Column="0"

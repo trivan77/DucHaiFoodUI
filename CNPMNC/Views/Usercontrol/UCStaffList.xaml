@@ -57,7 +57,7 @@
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
                          <TextBlock Grid.Column="3" Text="Kho" Foreground="White" VerticalAlignment="Center"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
-                         <TextBlock Grid.Column="4" Text="Thành tiền (VNĐ)" Foreground="White" VerticalAlignment="Center"
+                         <TextBlock Grid.Column="4" Text="SĐT" Foreground="White" VerticalAlignment="Center"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
                          <TextBlock Grid.Column="5" Text="Ngày tuyển dụng" Foreground="White" VerticalAlignment="Center"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
@@ -76,7 +76,7 @@
                </StackPanel>
           </Grid>
 
-          <Grid Grid.Row="2" Margin="43 0 55 0" Background="Black">
+          <Grid Grid.Row="2" Margin="43 0 55 0" Background="Transparent">
                
           </Grid>
      </Grid>

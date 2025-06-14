@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="CNPMNC.Views.Component.ForTable.UCRowProductImport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CNPMNC.Views.Component.ForTable"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+     <Grid Background="#FFF7F7F7">
+          <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="50"></ColumnDefinition>
+               <ColumnDefinition Width="0"></ColumnDefinition>
+               <ColumnDefinition Width="1.3*"></ColumnDefinition>
+               <ColumnDefinition Width="0.6*"></ColumnDefinition>
+               <ColumnDefinition></ColumnDefinition>
+               <ColumnDefinition></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <TextBlock Grid.Column="0" Text="{Binding STT}" VerticalAlignment="Center" Margin="15 0 0 0"
+                     FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+          <TextBlock Grid.Column="1" Text="{Binding MaSp}" VerticalAlignment="Center" Margin="15 0 0 0"
+                     FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+          <TextBlock Grid.Column="2" Text="{Binding TenSp}" VerticalAlignment="Center" 
+                     FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+          <TextBlock Grid.Column="3" Text="{Binding SoLuong}" VerticalAlignment="Center" 
+                     FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+          <TextBlock Grid.Column="4" Text="{Binding GiaNhap}" VerticalAlignment="Center" 
+                     FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+          <TextBlock Grid.Column="5" Text="{Binding GiaBan}" VerticalAlignment="Center" 
+                     FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
+     </Grid>
+</UserControl>

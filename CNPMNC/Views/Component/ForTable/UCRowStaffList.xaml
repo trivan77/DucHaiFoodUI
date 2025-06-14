@@ -25,7 +25,7 @@
                      FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
           <TextBlock Grid.Column="3" Text="{Binding TenKho}" VerticalAlignment="Center" 
                      FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
-          <TextBlock Grid.Column="4" Text="{Binding ThanhTien}" VerticalAlignment="Center" 
+          <TextBlock Grid.Column="4" Text="{Binding DienThoai}" VerticalAlignment="Center" 
                      FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>
           <TextBlock Grid.Column="5" Text="{Binding NgayTuyenDung}" VerticalAlignment="Center" 
                      FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"/>

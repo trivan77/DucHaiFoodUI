@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNPMNC.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace CNPMNC.Views.Usercontrol
      /// </summary>
      public partial class UCImportTicketList : UserControl
      {
+          VMImportTicket vmImportTicket;
           public UCImportTicketList()
           {
                InitializeComponent();
+
+               vmImportTicket = VMImportTicket.Instance;
+               DataContext = vmImportTicket;
           }
      }
 }

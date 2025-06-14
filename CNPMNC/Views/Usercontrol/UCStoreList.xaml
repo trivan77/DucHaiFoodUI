@@ -3,11 +3,77 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CNPMNC.Views.Usercontrol"
+             xmlns:local="clr-namespace:CNPMNC.Views.Component.ForTable"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-     <Grid>
-          <TextBlock Text="Store" FontSize="100"
-                     VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+     <Grid Margin="0 15 0 0">
+          <Grid.RowDefinitions>
+               <RowDefinition Height="60"></RowDefinition>
+               <RowDefinition></RowDefinition>
+          </Grid.RowDefinitions>
+
+          <!--Tìm kiếm và btn thêm mặt hàng-->
+          <Grid>
+               <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="43"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="130"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="55"></ColumnDefinition>
+               </Grid.ColumnDefinitions>
+
+               <TextBox Grid.Row="0" Grid.Column="1" Margin="0 10 10 10"
+                        Style="{StaticResource SearchTextBoxStyle}"></TextBox>
+               <Button Grid.Row="0" Grid.Column="2" Style="{StaticResource MainButtonStyle}"
+                       Margin="5 10" Content="Tìm kiếm"></Button>
+
+
+               <Button Grid.Row="0" Grid.Column="4" Style="{StaticResource MainButtonStyle}"
+                       Content="+ Thêm mặt hàng" Margin="0 10"></Button>
+          </Grid>
+
+          <!--List mặt hàng-->
+          <Grid Grid.Row="1" Margin="43 0 55 0">
+               <StackPanel>
+                    <!-- Header -->
+                    <Grid Background="#FF125593" Height="40">
+                         <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="30"></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition Width="100"></ColumnDefinition>
+                              <ColumnDefinition Width="16"></ColumnDefinition>
+                         </Grid.ColumnDefinitions>
+                         <TextBlock Grid.Column="1" Text="Tên kho" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk" />
+                         <TextBlock Grid.Column="2" Text="Địa chỉ" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
+                         <TextBlock Grid.Column="3" Text="Ngày tạo" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
+                         <TextBlock Grid.Column="4" Text="Phụ trách kho" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
+                         <TextBlock Grid.Column="5" Text="SĐT liên hệ" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
+                         <TextBlock Grid.Column="6" Text=" " Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                               FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
+                    </Grid>
+
+                    <!-- Body -->
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Height="400">
+                         <ItemsControl ItemsSource="{Binding StoreListRows}">
+                              <ItemsControl.ItemTemplate>
+                                   <DataTemplate>
+                                        <local:UCRowStoreList Margin="0 5 0 0" Height="40"/>
+                                   </DataTemplate>
+                              </ItemsControl.ItemTemplate>
+                         </ItemsControl>
+                    </ScrollViewer>
+               </StackPanel>
+          </Grid>
+
      </Grid>
 </UserControl>

@@ -1,4 +1,8 @@
-﻿using System;
+﻿using CNPMNC.Models;
+using CNPMNC.Models.DataSync;
+using CNPMNC.Utils;
+using CNPMNC.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +26,7 @@ namespace CNPMNC
      {
           #region Var
           bool isPWVisible = false;
+          public static string userName = "";
           #endregion
 
           public VLogIn()
@@ -73,6 +78,26 @@ namespace CNPMNC
           private void btnLogin_MouseLeave(object sender, MouseEventArgs e)
           {
                btnLogin.Background = new SolidColorBrush(Color.FromRgb(18, 85, 147));
+          }
+
+          private async void btnLogin_MouseDown(object sender, MouseButtonEventArgs e)
+          {
+               string username = txtUserName.Text;
+               string password = pwBox.Password;
+
+               bool success = await NhanVienSyncModel.DangNhap(username, password);
+
+               if (success)
+               {
+                    // Mở cửa sổ chính hoặc chuyển sang giao diện chính
+                    VMainWindow main = new VMainWindow();
+                    main.Show();
+                    this.Close();
+               }
+               else
+               {
+                    SystemNotify.ErrorNotify("Tài khoản hoặc mật khẩu không đúng!!!");
+               }
           }
      }
 }

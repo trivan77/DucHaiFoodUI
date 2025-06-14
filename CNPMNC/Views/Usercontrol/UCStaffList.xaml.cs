@@ -28,6 +28,9 @@ namespace CNPMNC.Views.Usercontrol
 
                vmStaffList = new VMStaffList();
                DataContext = vmStaffList;
+
+               // Gọi bất đồng bộ sau khi UI load xong
+               this.Loaded += async (s, e) => await vmStaffList.LoadStaffList();
           }
      }
 }

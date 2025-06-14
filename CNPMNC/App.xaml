@@ -2,7 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CNPMNC"
-             StartupUri="Views/VMainWindow.xaml">
+             
+             StartupUri="Views/VlogIn.xaml">
+     <!--StartupUri="Views/Component/VAddImportTicket.xaml">-->
     <Application.Resources>
           <Style x:Key="NavbarButtonStyle" TargetType="ToggleButton">
                <Setter Property="Foreground" Value="Black"/>
@@ -371,6 +373,35 @@
                          <Setter Property="Background" Value="#DD025E86"/>
                     </Trigger>
                </Style.Triggers>
+          </Style>
+
+          <Style TargetType="GroupBox" x:Key="RoundedGroupBoxStyle">
+               <Setter Property="Template">
+                    <Setter.Value>
+                         <ControlTemplate TargetType="GroupBox">
+                              <Grid>
+                                   <!-- Viền -->
+                                   <Border CornerRadius="5"
+                                           BorderBrush="#1E88E5"
+                                           BorderThickness="2"
+                                           Background="Transparent"
+                                           Padding="10">
+                                        <ContentPresenter />
+                                   </Border>
+
+                                   <!-- Header -->
+                                   <Border Background="White"
+                                           Padding="2"
+                                           HorizontalAlignment="Left"
+                                           Margin="16,0,0,0">
+                                        <TextBlock Text="{TemplateBinding Header}" 
+                                                   Foreground="#1E88E5"
+                                                   FontSize="11"/>
+                                   </Border>
+                              </Grid>
+                         </ControlTemplate>
+                    </Setter.Value>
+               </Setter>
           </Style>
      </Application.Resources>
 </Application>

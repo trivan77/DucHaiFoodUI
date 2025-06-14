@@ -13,6 +13,13 @@ namespace CNPMNC.Models
           public string Message { get; set; }
           public ApiStruct<T> Data { get; set; }
      }
+     public class ApiResponseDetail<T>
+     {
+          public int Status { get; set; }
+          public string Message { get; set; }
+          public T Data { get; set; } // ⚠️ Không phải ApiStruct<T>
+     }
+
 
      public class ApiStruct<T>
      {

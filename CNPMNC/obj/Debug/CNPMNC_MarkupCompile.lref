@@ -1,9 +1,15 @@
 ﻿
 FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\App.xaml;;
+FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Component\FloatingLabelComboBox.xaml;;
+FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Component\FloatingLabelTextBox.xaml;;
 FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Component\ForOverview\ImportHistoryTable\UCRowImportHistory.xaml;;
 FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Component\ForOverview\ImportHistoryTable\UCTableImportHistory.xaml;;
 FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Component\ForOverview\UCStatisticCard.xaml;;
+FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Component\ForTable\UCRowProductImport.xaml;;
 FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Component\ForTable\UCRowProductList.xaml;;
+FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Component\ForTable\UCRowStoreList.xaml;;
+FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Component\VAddImportTicket.xaml;;
+FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Component\VAddProduct.xaml;;
 FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Component\VAddStaff.xaml;;
 FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Usercontrol\UCExportTicketList.xaml;;
 FD:\WorkSpace\CaoHoc\DucHaiFood_UI\CNPMNC\Views\Usercontrol\UCOverview.xaml;;

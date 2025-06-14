@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNPMNC.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,16 @@ namespace CNPMNC.Views.Usercontrol
      /// </summary>
      public partial class UCStoreList : UserControl
      {
+          VMStoreList vmStoreList;
           public UCStoreList()
           {
                InitializeComponent();
+
+               vmStoreList = new VMStoreList();
+               DataContext = vmStoreList;
+
+               // Gọi bất đồng bộ sau khi UI load xong
+               this.Loaded += async (s, e) => await vmStoreList.LoadStoreList();
           }
      }
 }

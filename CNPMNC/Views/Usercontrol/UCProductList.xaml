@@ -30,33 +30,34 @@
 
 
                <Button Grid.Row="0" Grid.Column="4" Style="{StaticResource MainButtonStyle}"
-                       Content="+ Thêm mặt hàng" Margin="0 10"></Button>
+                       Command="{Binding ShowAddProductCommand}"
+                       Content="+ Thêm sản phẩm" Margin="0 10"></Button>
           </Grid>
          
          <!--List mặt hàng-->
-          <Grid Grid.Row="1">
+          <Grid Grid.Row="1" Margin="43 0 55 0">
                <StackPanel>
                     <!-- Header -->
                     <Grid Background="#FF125593" Height="40">
                          <Grid.ColumnDefinitions>
                               <ColumnDefinition Width="30"></ColumnDefinition>
+                              <ColumnDefinition Width="1.2*"></ColumnDefinition>
                               <ColumnDefinition></ColumnDefinition>
                               <ColumnDefinition></ColumnDefinition>
-                              <ColumnDefinition Width="1.3*"></ColumnDefinition>
-                              <ColumnDefinition Width="1.3*"></ColumnDefinition>
-                              <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
+                              <ColumnDefinition></ColumnDefinition>
                               <ColumnDefinition Width="100"></ColumnDefinition>
                               <ColumnDefinition Width="16"></ColumnDefinition>
                          </Grid.ColumnDefinitions>
-                         <TextBlock Grid.Column="1" Text="Mã phiếu" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                         <TextBlock Grid.Column="1" Text="Tên sản phẩm" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk" />
-                         <TextBlock Grid.Column="2" Text="Thời gian" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                         <TextBlock Grid.Column="2" Text="Giá nhập" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
-                         <TextBlock Grid.Column="3" Text="Kho" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                         <TextBlock Grid.Column="3" Text="Giá bán" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
-                         <TextBlock Grid.Column="4" Text="Thành tiền (VNĐ)" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                         <TextBlock Grid.Column="4" Text="Đơn vị tính" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
-                         <TextBlock Grid.Column="5" Text="Người tạo phiếu" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
+                         <TextBlock Grid.Column="5" Text="Số lượng" Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
                          <TextBlock Grid.Column="6" Text=" " Foreground="White" VerticalAlignment="Center" Margin="13 0 5 0"
                                FontSize="14" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"  />
@@ -64,10 +65,10 @@
 
                     <!-- Body -->
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Height="400">
-                         <ItemsControl ItemsSource="{Binding ImportHistoryRows}">
+                         <ItemsControl ItemsSource="{Binding ProductListRows}">
                               <ItemsControl.ItemTemplate>
                                    <DataTemplate>
-                                        <!--<local:UCRowImportHistory Margin="0 5 0 0" Height="40"/>-->
+                                        <local:UCRowProductList Margin="0 5 0 0" Height="40"/>
                                    </DataTemplate>
                               </ItemsControl.ItemTemplate>
                          </ItemsControl>
