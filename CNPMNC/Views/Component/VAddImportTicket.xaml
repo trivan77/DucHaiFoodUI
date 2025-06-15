@@ -39,16 +39,16 @@
                <Grid.RowDefinitions>
                     <RowDefinition Height="40"></RowDefinition>
                     <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
                     <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
                     <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="25"></RowDefinition>
-                    <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="25"></RowDefinition>
-                    <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="25"></RowDefinition>
-                    <RowDefinition Height="40"></RowDefinition>
                     <RowDefinition></RowDefinition>
                </Grid.RowDefinitions>
 
@@ -96,7 +96,8 @@
                     <Button Grid.Column="2" Content="Xóa"
                             Style="{StaticResource CloseButtonStyle}"
                             Width="90" Height="30"
-                            HorizontalAlignment="Right"></Button>
+                            HorizontalAlignment="Right"
+                            Command="{Binding DeleteProductCommand}"></Button>
                </Grid>
 
           </Grid>

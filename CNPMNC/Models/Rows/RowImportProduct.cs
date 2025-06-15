@@ -9,7 +9,20 @@ namespace CNPMNC.Models.Rows
 {
      class RowImportProduct : NotifyBase
      {
-          public int STT { get; set; }
+          private int sTT;
+          public int STT
+          {
+               get => sTT;
+               set
+               {
+                    if (sTT != value)
+                    {
+                         sTT = value;
+                         OnPropertyChanged(nameof(STT));
+                    }
+               }
+          }
+
           public int MaSp { get; set; }
           public string TenSp { get; set; }
 

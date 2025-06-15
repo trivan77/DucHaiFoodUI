@@ -126,6 +126,7 @@
     <Compile Include="Models\ChiTietSanPham.cs" />
     <Compile Include="Models\DataSync\HeThongKhoSyncModel.cs" />
     <Compile Include="Models\DataSync\NhanVienSyncModel.cs" />
+    <Compile Include="Models\DataSync\PhieuNhapSyncModel.cs" />
     <Compile Include="Models\DataSync\SanPhamSyncModel.cs" />
     <Compile Include="Models\HeThongKho.cs" />
     <Compile Include="Models\LoaiSanPham.cs" />

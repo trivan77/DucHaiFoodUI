@@ -82,6 +82,7 @@ namespace CNPMNC.ViewModels
           private ICommand mShowAddImportTicket;
           private ICommand mAddProduct;
           private ICommand mUpdateProduct;
+          private ICommand mDeleteProduct;
           #endregion
 
           #region Get/Set Biến ICommand
@@ -118,115 +119,204 @@ namespace CNPMNC.ViewModels
                     return mUpdateProduct;
                }
           }
+          public ICommand DeleteProductCommand
+          {
+               get
+               {
+                    if (mDeleteProduct == null)
+                    {
+                         mDeleteProduct = new RelayCommand(DeleteProduct);
+                    }
+                    return mDeleteProduct;
+               }
+          }
           #endregion
 
           #region function
           public void ShowAddImportTicket()
           {
-               // Kiểm tra xem cửa sổ đã được mở chưa
-               var existingWindow = Application.Current.Windows
-                   .OfType<VAddImportTicket>()
-                   .FirstOrDefault();
-
-               if (existingWindow != null)
+               try
                {
-                    // Nếu đã mở, đưa cửa sổ lên trước
-                    if (existingWindow.WindowState == WindowState.Minimized)
-                         existingWindow.WindowState = WindowState.Normal;
+                    // Kiểm tra xem cửa sổ đã được mở chưa
+                    var existingWindow = Application.Current.Windows
+                        .OfType<VAddImportTicket>()
+                        .FirstOrDefault();
 
-                    existingWindow.Activate();
+                    if (existingWindow != null)
+                    {
+                         // Nếu đã mở, đưa cửa sổ lên trước
+                         if (existingWindow.WindowState == WindowState.Minimized)
+                              existingWindow.WindowState = WindowState.Normal;
+
+                         existingWindow.Activate();
+                    }
+                    else
+                    {
+                         // Nếu chưa mở, tạo mới và hiển thị
+                         vAddImportTicket = new VAddImportTicket();
+                         vAddImportTicket.Show();
+                    }
                }
-               else
+               catch (Exception ex)
                {
-                    // Nếu chưa mở, tạo mới và hiển thị
-                    vAddImportTicket = new VAddImportTicket();
-                    vAddImportTicket.Show();
+                    SystemNotify.ErrorNotify("Lỗi: " + ex.Message);
                }
           }
 
           public async void LoadStoreNames()
           {
-               var danhSach = await HeThongKhoSyncModel.DanhSachMaKhoTenKho();
-               DanhSachTenKho.Clear();
-               foreach (var item in danhSach) DanhSachTenKho.Add(item);
+               try
+               {
+                    var danhSach = await HeThongKhoSyncModel.DanhSachMaKhoTenKho();
+                    DanhSachTenKho.Clear();
+                    foreach (var item in danhSach) DanhSachTenKho.Add(item);
+               }
+               catch (Exception ex)
+               {
+                    SystemNotify.ErrorNotify("Lỗi lấy danh sách kho: " + ex.Message);
+               }
           }
 
           public async void LoadProductNames()
           {
-               var danhSach = await SanPhamSyncModel.DanhSachMaSPTenSP();
-               DanhSachTenSP.Clear();
-               foreach (var item in danhSach) DanhSachTenSP.Add(item);
+               try
+               {
+                    var danhSach = await SanPhamSyncModel.DanhSachMaSPTenSP();
+                    DanhSachTenSP.Clear();
+                    foreach (var item in danhSach) DanhSachTenSP.Add(item);
+               }
+               catch (Exception ex)
+               {
+                    SystemNotify.ErrorNotify("Lỗi lấy danh sách sản phẩm: " + ex.Message);
+               }
           }
 
           public async void AddProduct()
           {
-               if (NumImported == 0)
+               try
                {
-                    SystemNotify.ErrorNotify("Bạn chưa nhập số lượng sản phẩm!!!");
-               }
-               else if (ProductSelected == "" || ProductSelected == null)
-               {
-                    SystemNotify.ErrorNotify("Bạn chưa nhập chọn sản phẩm!!!");
-               }
-               else
-               {
-                    int maSP = Convert.ToInt32(ProductSelected.Split('.')[0].ToString().Trim());
-                    string tenSp = ProductSelected.Split('.')[1].ToString().Trim();
-
-                    bool checkExist = ProductImportRows.Any(p => p.MaSp == maSP);
-                    if (checkExist)
+                    if (NumImported == 0)
                     {
-                         SystemNotify.ErrorNotify("Sản phẩm đã được thêm trong danh sách!");
+                         SystemNotify.ErrorNotify("Bạn chưa nhập số lượng sản phẩm!!!");
+                    }
+                    else if (ProductSelected == "" || ProductSelected == null)
+                    {
+                         SystemNotify.ErrorNotify("Bạn chưa nhập chọn sản phẩm!!!");
                     }
                     else
                     {
-                         SanPham spSelected = await SanPhamSyncModel.GetSanPhamById(maSP);
+                         int maSP = Convert.ToInt32(ProductSelected.Split('.')[0].ToString().Trim());
+                         string tenSp = ProductSelected.Split('.')[1].ToString().Trim();
 
-                         RowImportProduct importProduct = new RowImportProduct();
-                         importProduct.STT = ProductImportRows.Count + 1;
-                         importProduct.MaSp = maSP;
-                         importProduct.TenSp = tenSp;
-                         importProduct.SoLuong = NumImported;
-                         importProduct.GiaBan = spSelected.GiaBan;
-                         importProduct.GiaNhap = spSelected.GiaNhap;
+                         bool checkExist = ProductImportRows.Any(p => p.MaSp == maSP);
+                         if (checkExist)
+                         {
+                              SystemNotify.ErrorNotify("Sản phẩm đã được thêm trong danh sách!");
+                         }
+                         else
+                         {
+                              SanPham spSelected = await SanPhamSyncModel.GetSanPhamById(maSP);
 
-                         ProductImportRows.Add(importProduct);
+                              RowImportProduct importProduct = new RowImportProduct();
+                              importProduct.STT = ProductImportRows.Count + 1;
+                              importProduct.MaSp = maSP;
+                              importProduct.TenSp = tenSp;
+                              importProduct.SoLuong = NumImported;
+                              importProduct.GiaBan = spSelected.GiaBan;
+                              importProduct.GiaNhap = spSelected.GiaNhap;
 
-                         TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) + (((uint)Convert.ToDouble(spSelected.GiaBan)) * (uint)NumImported));
+                              ProductImportRows.Add(importProduct);
 
-                         NumImported = 0;
+                              TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) + (((uint)Convert.ToDouble(spSelected.GiaBan)) * (uint)NumImported));
+
+                              NumImported = 0;
+                         }
                     }
+               }
+               catch (Exception ex)
+               {
+                    SystemNotify.ErrorNotify("Lỗi thêm sản phẩm: " + ex.Message);
                }
           }
 
           public void UpdateProduct()
           {
-               if (NumImported == 0)
+               try
                {
-                    SystemNotify.ErrorNotify("Bạn chưa nhập số lượng sản phẩm!!!");
-               }
-               else if (ProductSelected == "" || ProductSelected == null)
-               {
-                    SystemNotify.ErrorNotify("Bạn chưa nhập chọn sản phẩm!!!");
-               }
-               else
-               {
-                    int maSP = Convert.ToInt32(ProductSelected.Split('.')[0].ToString().Trim());
-                    string tenSp = ProductSelected.Split('.')[1].ToString().Trim();
-
-                    bool checkExist = ProductImportRows.Any(p => p.MaSp == maSP);
-                    if (!checkExist)
+                    if (NumImported == 0)
                     {
-                         //SystemNotify.ErrorNotify("Sản phẩm đã được thêm trong danh sách!");
+                         SystemNotify.ErrorNotify("Bạn chưa nhập số lượng sản phẩm!!!");
+                    }
+                    else if (ProductSelected == "" || ProductSelected == null)
+                    {
+                         SystemNotify.ErrorNotify("Bạn chưa nhập chọn sản phẩm!!!");
                     }
                     else
                     {
-                         var updatedProduct = ProductImportRows.FirstOrDefault(p => p.MaSp == maSP);
+                         int maSP = Convert.ToInt32(ProductSelected.Split('.')[0].ToString().Trim());
+                         string tenSp = ProductSelected.Split('.')[1].ToString().Trim();
 
-                         TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) - Convert.ToUInt32(updatedProduct.SoLuong) * (uint)Convert.ToDouble(updatedProduct.GiaBan) + (uint)NumImported * (uint)Convert.ToDouble(updatedProduct.GiaBan));
+                         bool checkExist = ProductImportRows.Any(p => p.MaSp == maSP);
+                         if (!checkExist)
+                         {
+                              //SystemNotify.ErrorNotify("Sản phẩm đã được thêm trong danh sách!");
+                         }
+                         else
+                         {
+                              var updatedProduct = ProductImportRows.FirstOrDefault(p => p.MaSp == maSP);
 
-                         updatedProduct.SoLuong = NumImported;
+                              TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) - Convert.ToUInt32(updatedProduct.SoLuong) * (uint)Convert.ToDouble(updatedProduct.GiaBan) + (uint)NumImported * (uint)Convert.ToDouble(updatedProduct.GiaBan));
+
+                              updatedProduct.SoLuong = NumImported;
+                         }
                     }
+               }
+               catch (Exception ex)
+               {
+                    SystemNotify.ErrorNotify("Lỗi cập nhật sản phẩm: " + ex.Message);
+               }
+          }
+
+          public void DeleteProduct()
+          {
+               try
+               {
+                    if (NumImported == 0)
+                    {
+                         SystemNotify.ErrorNotify("Bạn chưa nhập số lượng sản phẩm!!!");
+                    }
+                    else if (ProductSelected == "" || ProductSelected == null)
+                    {
+                         SystemNotify.ErrorNotify("Bạn chưa nhập chọn sản phẩm!!!");
+                    }
+                    else
+                    {
+                         int maSP = Convert.ToInt32(ProductSelected.Split('.')[0].ToString().Trim());
+                         string tenSp = ProductSelected.Split('.')[1].ToString().Trim();
+
+                         bool checkExist = ProductImportRows.Any(p => p.MaSp == maSP);
+                         if (!checkExist)
+                         {
+                              //SystemNotify.ErrorNotify("Sản phẩm đã được thêm trong danh sách!");
+                         }
+                         else
+                         {
+                              var deletedProduct = ProductImportRows.FirstOrDefault(p => p.MaSp == maSP);
+
+                              for (int i = deletedProduct.STT; i < ProductImportRows.Count; i++)
+                              {
+                                   ProductImportRows[i].STT -= 1;
+                              }
+
+                              ProductImportRows.Remove(deletedProduct);
+
+                              TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) - Convert.ToUInt32(deletedProduct.SoLuong) * (uint)Convert.ToDouble(deletedProduct.GiaBan));
+                         }
+                    }
+               }
+               catch (Exception ex)
+               {
+                    SystemNotify.ErrorNotify("Lỗi xóa sản phẩm: " + ex.Message);
                }
           }
 
