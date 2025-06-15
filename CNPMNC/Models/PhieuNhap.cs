@@ -5,6 +5,6 @@ namespace CNPMNC.Models{
           public int MaNv { get; set; }
           public string NgayNhap { get; set; }
           public int MaKho { get; set; }
-          public decimal TongTien { get; set; }
+          public string TongTien { get; set; }
      }
 }

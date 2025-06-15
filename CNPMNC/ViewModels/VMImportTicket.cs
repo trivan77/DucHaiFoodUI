@@ -34,6 +34,8 @@ namespace CNPMNC.ViewModels
                DanhSachTenKho = new ObservableCollection<string>();
 
                DanhSachTenSP = new ObservableCollection<string>();
+
+               ImportDate = DateTime.Now.ToString("yyyy-MM-dd");
           }
 
           #region Biến
@@ -50,6 +52,17 @@ namespace CNPMNC.ViewModels
                {
                     productSelected = value;
                     OnPropertyChanged(nameof(ProductSelected));
+               }
+          }
+
+          private string importDate;
+          public string ImportDate
+          {
+               get => importDate;
+               set
+               {
+                    importDate = value;
+                    OnPropertyChanged(nameof(ImportDate));
                }
           }
 
@@ -83,6 +96,7 @@ namespace CNPMNC.ViewModels
           private ICommand mAddProduct;
           private ICommand mUpdateProduct;
           private ICommand mDeleteProduct;
+          private ICommand mAddImportTicket;
           #endregion
 
           #region Get/Set Biến ICommand
@@ -128,6 +142,17 @@ namespace CNPMNC.ViewModels
                          mDeleteProduct = new RelayCommand(DeleteProduct);
                     }
                     return mDeleteProduct;
+               }
+          }
+          public ICommand AddImportTicketCommand
+          {
+               get
+               {
+                    if (mAddImportTicket == null)
+                    {
+                         mAddImportTicket = new RelayCommand(AddImportTicket);
+                    }
+                    return mAddImportTicket;
                }
           }
           #endregion
@@ -230,6 +255,7 @@ namespace CNPMNC.ViewModels
                               TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) + (((uint)Convert.ToDouble(spSelected.GiaBan)) * (uint)NumImported));
 
                               NumImported = 0;
+                              ProductSelected = null;
                          }
                     }
                }
@@ -268,6 +294,9 @@ namespace CNPMNC.ViewModels
                               TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) - Convert.ToUInt32(updatedProduct.SoLuong) * (uint)Convert.ToDouble(updatedProduct.GiaBan) + (uint)NumImported * (uint)Convert.ToDouble(updatedProduct.GiaBan));
 
                               updatedProduct.SoLuong = NumImported;
+
+                              NumImported = 0;
+                              ProductSelected = null;
                          }
                     }
                }
@@ -311,12 +340,35 @@ namespace CNPMNC.ViewModels
                               ProductImportRows.Remove(deletedProduct);
 
                               TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) - Convert.ToUInt32(deletedProduct.SoLuong) * (uint)Convert.ToDouble(deletedProduct.GiaBan));
+
+                              NumImported = 0;
+                              ProductSelected = null;
                          }
                     }
                }
                catch (Exception ex)
                {
                     SystemNotify.ErrorNotify("Lỗi xóa sản phẩm: " + ex.Message);
+               }
+          }
+
+          public async void AddImportTicket()
+          {
+               try
+               {
+                    //await PhieuNhapSyncModel.ThemPhieuNhap(UserSession.CurrentUser.MaNv, ImportDate, Convert.ToInt32(UserSession.CurrentUser.MaKho), ParseTienVND(TotalPrice).ToString() + ".00");
+
+                    await PhieuNhapSyncModel.ThemChiTietPhieuNhap(ProductImportRows);
+
+                    ProductImportRows.Clear();
+
+                    ImportDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+                    TotalPrice = "0";
+               }
+               catch (Exception ex)
+               {
+                    SystemNotify.ErrorNotify("Lỗi: " + ex.Message);
                }
           }
 
