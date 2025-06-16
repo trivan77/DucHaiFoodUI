@@ -109,7 +109,7 @@
 
                </Grid>
           </Border>
-          
+
           <Border Grid.Row="1" Visibility="{Binding IsTicketChildVisible}" Panel.ZIndex="999" Background="White"
                   Height="90" Width="179" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="300 0"               
                   BorderBrush="LightGray" BorderThickness="1 0 1 0">
@@ -122,13 +122,13 @@
 
                     <ToggleButton Grid.Row="0" Name="btnImportTicket" Style="{StaticResource ChildItemButtonStyle}"
                                                  Content="Phiếu nhập" Margin="0 0 0 1" 
-                                                 Click="TicketChildButton_Click" Command="{Binding ShowImportTicketCommand}"></ToggleButton>
+                                                 Click="TicketChildButton_Click" Command="{Binding ShowImportTicketCommand}" Cursor="Hand"></ToggleButton>
                     <ToggleButton Grid.Row="1" Name="btnExportTicket" Style="{StaticResource ChildItemButtonStyle}"
                                                  Content="Phiếu xuất" Margin="0 0 0 1"
-                                                 Click="TicketChildButton_Click" Command="{Binding ShowExportTicketCommand}"></ToggleButton>
+                                                 Click="TicketChildButton_Click" Command="{Binding ShowExportTicketCommand}" Cursor="Hand"></ToggleButton>
                     <ToggleButton Grid.Row="2" Name="btnTransTicket" Style="{StaticResource ChildItemButtonStyle}"
                                                  Content="Phiếu điều chuyển"
-                                                 Click="TicketChildButton_Click" Command="{Binding ShowTransTicketCommand}"></ToggleButton>
+                                                 Click="TicketChildButton_Click" Command="{Binding ShowTransTicketCommand}" Cursor="Hand"></ToggleButton>
 
                </Grid>
           </Border>
@@ -136,5 +136,5 @@
           <!--Content control-->
           <ContentControl Grid.Row="1" Content="{Binding CurrentView}"></ContentControl>
 
-          </Grid>
+     </Grid>
 </Window>

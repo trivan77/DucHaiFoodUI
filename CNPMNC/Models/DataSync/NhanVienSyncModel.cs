@@ -100,7 +100,7 @@ namespace CNPMNC.Models.DataSync
                               UserSession.CurrentUser = new NhanVien
                               {
                                    MaNv = matched.maNv,
-                                   MaKho = matched.maKho.ToString(),
+                                   MaKho = matched.maKho,
                                    TenNv = matched.tenNv,
                                    Username = matched.username,
                                    GioiTinh = matched.gioiTinh,
@@ -122,7 +122,7 @@ namespace CNPMNC.Models.DataSync
                return false; // Sai tài khoản hoặc lỗi server
           }
 
-          public static async Task GetNhanVienById(string maNV)
+          public static async Task<NhanVien> GetNhanVienById(int maNV)
           {
                var httpClient = new HttpClient();
 
@@ -141,8 +141,7 @@ namespace CNPMNC.Models.DataSync
                     PropertyNameCaseInsensitive = true
                });
 
-               // In ra thử
-               Console.WriteLine($"Tên nhân viên: {result.Data.TenNv}");
+               return result.Data;
           }
      }
 }

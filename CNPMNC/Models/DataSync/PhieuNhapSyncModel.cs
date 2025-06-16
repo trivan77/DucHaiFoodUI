@@ -13,6 +13,59 @@ namespace CNPMNC.Models.DataSync
 {
      class PhieuNhapSyncModel
      {
+          public static async Task<ObservableCollection<RowImportTicket>> DanhSachPhieuNhap()
+          {
+               var result = new ObservableCollection<RowImportTicket>();
+               var url = "http://cong-nghe-phan-mem.asuna.id.vn//api/cong-nghe-phan-mem/phieu-nhap/get";
+
+               using (var client = new HttpClient())
+               {
+                    var body = new
+                    {
+                         current = 1,
+                         pageSize = 20
+                    };
+
+                    var content = new StringContent(JsonSerializer.Serialize(body), Encoding.UTF8, "application/json");
+
+                    var response = await client.PostAsync(url, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                         var options = new JsonSerializerOptions
+                         {
+                              PropertyNameCaseInsensitive = true
+                         };
+
+                         var json = await response.Content.ReadAsStringAsync();
+                         var data = JsonSerializer.Deserialize<ApiResponse<PhieuNhap>>(json, options);
+
+                         if(data.Status == 1)
+                         {
+                              for (int i = 0; i < data.Data.Data.Count; i++)
+                              {
+                                   var phieuNhap = data.Data.Data[i];
+
+                                   NhanVien nv = await NhanVienSyncModel.GetNhanVienById(phieuNhap.MaNv);
+                                   string tenKho = await HeThongKhoSyncModel.KhoHienTai(phieuNhap.MaKho);
+
+                                   result.Add(new RowImportTicket(i + 1, phieuNhap.MaPn, phieuNhap.NgayNhap, nv.TenNv, tenKho, FormatTien(phieuNhap.TongTien)));
+                              }
+                         }
+                         else
+                         {
+                              throw new Exception(data.Message + "!!!");
+                         }
+                    }
+                    else
+                    {
+                         throw new Exception("Không có kết nối tới server!!!");
+                    }
+
+                    return result;
+               }
+          }
+
           public static async Task<int> MaPhieuNhapNew()
           {
                var result = 0;
@@ -103,6 +156,69 @@ namespace CNPMNC.Models.DataSync
                     var response = await httpClient.PostAsync(url, content);
                     response.EnsureSuccessStatusCode();
                }
+          }
+
+          public static async Task<ObservableCollection<RowImportProduct>> DanhSachChiTietPhieuNhap()
+          {
+               var result = new ObservableCollection<RowImportProduct>();
+               var url = "http://cong-nghe-phan-mem.asuna.id.vn//api/cong-nghe-phan-mem/chi-tiet-phieu-nhap/get";
+
+               using (var client = new HttpClient())
+               {
+                    var body = new
+                    {
+                         current = 1,
+                         pageSize = 20
+                    };
+
+                    var content = new StringContent(JsonSerializer.Serialize(body), Encoding.UTF8, "application/json");
+
+                    var response = await client.PostAsync(url, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                         var options = new JsonSerializerOptions
+                         {
+                              PropertyNameCaseInsensitive = true
+                         };
+
+                         var json = await response.Content.ReadAsStringAsync();
+                         var data = JsonSerializer.Deserialize<ApiResponse<ChiTietPhieuNhap>>(json, options);
+
+                         if (data.Status == 1)
+                         {
+                              for (int i = 0; i < data.Data.Data.Count; i++)
+                              {
+                                   var phieuNhap = data.Data.Data[i];
+
+                                   NhanVien nv = await NhanVienSyncModel.GetNhanVienById(phieuNhap.MaNv);
+                                   string tenKho = await HeThongKhoSyncModel.KhoHienTai(phieuNhap.MaKho);
+
+                                   result.Add(new RowImportProduct(i + 1, phieuNhap.MaPn, phieuNhap.NgayNhap, nv.TenNv, tenKho, FormatTien(phieuNhap.TongTien)));
+                              }
+                         }
+                         else
+                         {
+                              throw new Exception(data.Message + "!!!");
+                         }
+                    }
+                    else
+                    {
+                         throw new Exception("Không có kết nối tới server!!!");
+                    }
+
+                    return result;
+               }
+          }
+
+          public static string FormatTien(string soTienStr)
+          {
+               if (decimal.TryParse(soTienStr, out decimal soTien))
+               {
+                    return string.Format("{0:N0}", soTien).Replace(",", ".");
+               }
+
+               throw new FormatException("Số tiền không hợp lệ.");
           }
      }
 }

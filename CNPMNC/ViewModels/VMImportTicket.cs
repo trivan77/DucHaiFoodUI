@@ -30,6 +30,7 @@ namespace CNPMNC.ViewModels
           public VMImportTicket()
           {
                ProductImportRows = new ObservableCollection<RowImportProduct>();
+               ImportTicketListRows = new ObservableCollection<RowImportTicket>();
 
                DanhSachTenKho = new ObservableCollection<string>();
 
@@ -41,6 +42,7 @@ namespace CNPMNC.ViewModels
           #region Biến
 
           public ObservableCollection<RowImportProduct> ProductImportRows { get; set; }
+          public ObservableCollection<RowImportTicket> ImportTicketListRows { get; set; }
           public ObservableCollection<string> DanhSachTenKho { get; set; }
           public ObservableCollection<string> DanhSachTenSP { get; set; }
 
@@ -157,7 +159,7 @@ namespace CNPMNC.ViewModels
           }
           #endregion
 
-          #region function
+          #region Function
           public void ShowAddImportTicket()
           {
                try
@@ -185,6 +187,16 @@ namespace CNPMNC.ViewModels
                catch (Exception ex)
                {
                     SystemNotify.ErrorNotify("Lỗi: " + ex.Message);
+               }
+          }
+
+          public async Task LoadImportTicketList()
+          {
+               var danhSach = await PhieuNhapSyncModel.DanhSachPhieuNhap();
+               ImportTicketListRows.Clear();
+               foreach (var item in danhSach)
+               {
+                    ImportTicketListRows.Add(item);
                }
           }
 

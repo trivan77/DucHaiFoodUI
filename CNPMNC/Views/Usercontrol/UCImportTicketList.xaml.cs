@@ -28,6 +28,9 @@ namespace CNPMNC.Views.Usercontrol
 
                vmImportTicket = VMImportTicket.Instance;
                DataContext = vmImportTicket;
+
+               // Gọi bất đồng bộ sau khi UI load xong
+               this.Loaded += async (s, e) => await vmImportTicket.LoadImportTicketList();
           }
      }
 }

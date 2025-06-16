@@ -167,6 +167,9 @@
     <Compile Include="Views\Component\ForOverview\UCStatisticCard.xaml.cs">
       <DependentUpon>UCStatisticCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Component\ForTable\UCRowImportTicket.xaml.cs">
+      <DependentUpon>UCRowImportTicket.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Component\ForTable\UCRowProductImport.xaml.cs">
       <DependentUpon>UCRowProductImport.xaml</DependentUpon>
     </Compile>
@@ -232,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Component\ForOverview\UCStatisticCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Component\ForTable\UCRowImportTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

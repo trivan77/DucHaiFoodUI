@@ -38,6 +38,19 @@ namespace CNPMNC.Views.Component
                cbxTenSP.DropDownOpened += DanhSachTenSP_DropDownOpened;
           }
 
+          public VAddImportTicket(string tenNV, string maKho, string ngayNhap)
+          {
+               InitializeComponent();
+
+               vmImportTicket = VMImportTicket.Instance;
+               DataContext = vmImportTicket;
+
+               txtNgayTaoPhieu.Text = ngayNhap;
+               txtCurrentStore.Text = maKho;
+               txtNguoiTaoPhieu.Text = tenNV;
+               cbxTenSP.DropDownOpened += DanhSachTenSP_DropDownOpened;
+          }
+
           private void DanhSachTenSP_DropDownOpened(object sender, EventArgs e)
           {
                vmImportTicket.LoadProductNames();

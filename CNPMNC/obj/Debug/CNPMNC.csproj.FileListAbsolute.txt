@@ -218,3 +218,5 @@ E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRow
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\VAddImportTicket.baml
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\VAddProduct.baml
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\VAddStaff.baml
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowImportTicket.g.cs
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowImportTicket.baml
