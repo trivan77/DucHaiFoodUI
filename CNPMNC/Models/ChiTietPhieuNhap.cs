@@ -3,6 +3,8 @@ namespace CNPMNC.Models{
      {
           public int MaPn { get; set; }
           public int MaSp { get; set; }
-          public decimal DonGia { get; set; }
+          public string DonGia { get; set; }
+          public int SoLuong { get; set; }
+          public string ThanhTien { get; set; }
      }
 }

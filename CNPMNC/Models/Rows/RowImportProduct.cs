@@ -9,6 +9,18 @@ namespace CNPMNC.Models.Rows
 {
      class RowImportProduct : NotifyBase
      {
+          public RowImportProduct() { }
+
+          public RowImportProduct(int sTT, int maSp, string tenSp, int soLuong, string giaBan, string giaNhap)
+          {
+               this.sTT = sTT;
+               MaSp = maSp;
+               TenSp = tenSp;
+               this.soLuong = soLuong;
+               GiaBan = giaBan;
+               GiaNhap = giaNhap;
+          }
+
           private int sTT;
           public int STT
           {
@@ -27,6 +39,7 @@ namespace CNPMNC.Models.Rows
           public string TenSp { get; set; }
 
           private int soLuong;
+
           public int SoLuong
           {
                get => soLuong;

@@ -151,7 +151,7 @@
                           FontSize="17" FontFamily="/CNPMNC;component/Resources/Fonts/SpaceGrotesk/#Space Grotesk"
                           FontWeight="Bold" Foreground="#FF125593">
                     <Run Text="Tổng tiền: "></Run>
-                    <Run Text="{Binding TotalPrice}" FontStyle="Italic"></Run>
+                    <Run x:Name="txtTongTien" Text="{Binding TotalPrice}" FontStyle="Italic"></Run>
                     <Run Text=" VNĐ"></Run>
                </TextBlock>
 

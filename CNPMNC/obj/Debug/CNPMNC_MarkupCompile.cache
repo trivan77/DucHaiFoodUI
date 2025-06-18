@@ -16,5 +16,5 @@ E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\App.xaml
 35-1264700736
 Views\Component\FloatingLabelComboBox.xaml;Views\Component\FloatingLabelTextBox.xaml;Views\Component\ForOverview\ImportHistoryTable\UCRowImportHistory.xaml;Views\Component\ForOverview\ImportHistoryTable\UCTableImportHistory.xaml;Views\Component\ForOverview\UCStatisticCard.xaml;Views\Component\ForTable\UCRowImportTicket.xaml;Views\Component\ForTable\UCRowProductImport.xaml;Views\Component\ForTable\UCRowProductList.xaml;Views\Component\ForTable\UCRowStaffList.xaml;Views\Component\ForTable\UCRowStoreList.xaml;Views\Component\VAddImportTicket.xaml;Views\Component\VAddProduct.xaml;Views\Component\VAddStaff.xaml;Views\Usercontrol\UCExportTicketList.xaml;Views\Usercontrol\UCOverview.xaml;Views\Component\ForOverview\UCProfitChart.xaml;Views\Usercontrol\UCProductList.xaml;Views\Usercontrol\UCStaffList.xaml;Views\Usercontrol\UCStoreList.xaml;Views\Usercontrol\UCImportTicketList.xaml;Views\Usercontrol\UCTransTicketList.xaml;Views\VLogIn.xaml;Views\VMainWindow.xaml;
 
-True
+False
 

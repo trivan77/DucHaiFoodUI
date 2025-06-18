@@ -368,7 +368,7 @@ namespace CNPMNC.ViewModels
           {
                try
                {
-                    //await PhieuNhapSyncModel.ThemPhieuNhap(UserSession.CurrentUser.MaNv, ImportDate, Convert.ToInt32(UserSession.CurrentUser.MaKho), ParseTienVND(TotalPrice).ToString() + ".00");
+                    await PhieuNhapSyncModel.ThemPhieuNhap(UserSession.CurrentUser.MaNv, ImportDate, Convert.ToInt32(UserSession.CurrentUser.MaKho), ParseTienVND(TotalPrice).ToString() + ".00");
 
                     await PhieuNhapSyncModel.ThemChiTietPhieuNhap(ProductImportRows);
 

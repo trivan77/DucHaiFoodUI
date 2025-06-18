@@ -147,7 +147,7 @@ namespace CNPMNC.Models.DataSync
                               maSp = sanPham.MaSp,
                               donGia = sanPham.GiaBan,
                               donViTinh = sanPham.DonViTinh,
-                              soLuong = sanPham.SoLuong,
+                              soLuong = rowImportProduct.SoLuong,
                          }
                     };
                     var json = JsonSerializer.Serialize(requestBody);
@@ -158,7 +158,7 @@ namespace CNPMNC.Models.DataSync
                }
           }
 
-          public static async Task<ObservableCollection<RowImportProduct>> DanhSachChiTietPhieuNhap()
+          public static async Task<ObservableCollection<RowImportProduct>> DanhSachChiTietPhieuNhap(int maPn)
           {
                var result = new ObservableCollection<RowImportProduct>();
                var url = "http://cong-nghe-phan-mem.asuna.id.vn//api/cong-nghe-phan-mem/chi-tiet-phieu-nhap/get";
@@ -187,14 +187,18 @@ namespace CNPMNC.Models.DataSync
 
                          if (data.Status == 1)
                          {
+                              int STT = 1;
                               for (int i = 0; i < data.Data.Data.Count; i++)
                               {
-                                   var phieuNhap = data.Data.Data[i];
+                                   var chiTietPhieuNhap = data.Data.Data[i];
 
-                                   NhanVien nv = await NhanVienSyncModel.GetNhanVienById(phieuNhap.MaNv);
-                                   string tenKho = await HeThongKhoSyncModel.KhoHienTai(phieuNhap.MaKho);
+                                   if(chiTietPhieuNhap.MaPn == maPn)
+                                   {
+                                        SanPham sp = await SanPhamSyncModel.GetSanPhamById(chiTietPhieuNhap.MaSp);
 
-                                   result.Add(new RowImportProduct(i + 1, phieuNhap.MaPn, phieuNhap.NgayNhap, nv.TenNv, tenKho, FormatTien(phieuNhap.TongTien)));
+                                        result.Add(new RowImportProduct(STT, chiTietPhieuNhap.MaSp, sp.TenSp, chiTietPhieuNhap.SoLuong, sp.GiaBan, sp.GiaNhap));
+                                        STT++;
+                                   }
                               }
                          }
                          else

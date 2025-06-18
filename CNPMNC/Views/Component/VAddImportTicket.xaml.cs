@@ -38,7 +38,7 @@ namespace CNPMNC.Views.Component
                cbxTenSP.DropDownOpened += DanhSachTenSP_DropDownOpened;
           }
 
-          public VAddImportTicket(string tenNV, string maKho, string ngayNhap)
+          public VAddImportTicket(int maPn, string tenNV, string maKho, string ngayNhap, string tongTien)
           {
                InitializeComponent();
 
@@ -48,7 +48,20 @@ namespace CNPMNC.Views.Component
                txtNgayTaoPhieu.Text = ngayNhap;
                txtCurrentStore.Text = maKho;
                txtNguoiTaoPhieu.Text = tenNV;
+               vmImportTicket.TotalPrice = tongTien;
                cbxTenSP.DropDownOpened += DanhSachTenSP_DropDownOpened;
+               LoadChiTietPhieuNhap(maPn);
+          }
+
+          async void LoadChiTietPhieuNhap(int maPn)
+          {
+               var danhSachCTPN = await PhieuNhapSyncModel.DanhSachChiTietPhieuNhap(maPn);
+               vmImportTicket.ProductImportRows.Clear();
+               
+               foreach(var ctpn in danhSachCTPN)
+               {
+                    vmImportTicket.ProductImportRows.Add(ctpn);
+               }
           }
 
           private void DanhSachTenSP_DropDownOpened(object sender, EventArgs e)

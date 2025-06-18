@@ -27,10 +27,8 @@ namespace CNPMNC.Views.Component.ForTable
 
           private async void Edit_Click(object sender, RoutedEventArgs e)
           {
-               //var sanPham = await GetSanPhamByID(Convert.ToInt32(txtMaSP.Text));
-
-               //// Nếu chưa mở, tạo mới và hiển thị
-               //VAddProduct vAddProduct = new VAddProduct(sanPham, LoaiSanPhamListInt[sanPham.LoaiSp]);
+               // Nếu chưa mở, tạo mới và hiển thị
+               VAddImportTicket vAddImportTicket = new VAddImportTicket(Convert.ToInt32(txtMaPN.Text), txtTenNV.Text, txtTenKho.Text, txtNgayNhap.Text, txtThanhTien.Text);
 
                //// Gắn sự kiện đóng cửa sổ
                //vAddProduct.Closed += async (s, args) =>
@@ -38,7 +36,7 @@ namespace CNPMNC.Views.Component.ForTable
                //     await vmProductList.LoadProductList();  // Gọi lại khi cửa sổ đóng
                //};
 
-               //vAddProduct.Show();
+               vAddImportTicket.Show();
           }
 
           private void Delete_Click(object sender, RoutedEventArgs e)
