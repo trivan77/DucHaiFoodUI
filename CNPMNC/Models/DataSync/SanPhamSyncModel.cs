@@ -53,6 +53,46 @@ namespace CNPMNC.Models.DataSync
                }
           }
 
+          public static async Task<ObservableCollection<string>> DanhSachMaSPTenSP(int maKho)
+          {
+               var result = new ObservableCollection<string>();
+               var url = "http://cong-nghe-phan-mem.asuna.id.vn//api/cong-nghe-phan-mem/chi-tiet-san-pham/get";
+
+               using (var client = new HttpClient())
+               {
+                    var body = new
+                    {
+                         current = 1,
+                         pageSize = 20
+                    };
+
+                    var content = new StringContent(JsonSerializer.Serialize(body), Encoding.UTF8, "application/json");
+
+                    var response = await client.PostAsync(url, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                         var options = new JsonSerializerOptions
+                         {
+                              PropertyNameCaseInsensitive = true
+                         };
+
+                         var json = await response.Content.ReadAsStringAsync();
+                         var data = JsonSerializer.Deserialize<ApiResponse<ChiTietSanPham>>(json, options);
+
+                         foreach (var chiTietSanPham in data.Data.Data)
+                         {
+                              if(chiTietSanPham.MaKho == maKho)
+                              {
+                                   SanPham sp = await GetSanPhamById(chiTietSanPham.MaSp);
+                                   result.Add(chiTietSanPham.MaSp + ". " + sp.TenSp + " - " + chiTietSanPham.SoLuong);
+                              }
+                         }
+                    }
+
+                    return result;
+               }
+          }
           public static async Task<ObservableCollection<string>> DanhSachMaSPTenSP()
           {
                var result = new ObservableCollection<string>();

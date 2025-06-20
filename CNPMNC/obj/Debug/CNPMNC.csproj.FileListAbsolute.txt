@@ -220,3 +220,7 @@ E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\VAddProduct.ba
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\VAddStaff.baml
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowImportTicket.g.cs
 E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowImportTicket.baml
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\VAddExportTicket.g.cs
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\VAddExportTicket.baml
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowExportTicket.g.cs
+E:\WorkSpace\CaoHoc\DucHaiFoodUI\CNPMNC\obj\Debug\Views\Component\ForTable\UCRowExportTicket.baml

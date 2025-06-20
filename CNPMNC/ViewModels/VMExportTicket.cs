@@ -14,57 +14,62 @@ using System.Windows.Input;
 
 namespace CNPMNC.ViewModels
 {
-     class VMImportTicket : NotifyBase
+     class VMExportTicket : NotifyBase
      {
-          private static VMImportTicket _instance;
-          public static VMImportTicket Instance
+          private static VMExportTicket _instance;
+          public static VMExportTicket Instance
           {
                get
                {
                     if (_instance == null)
-                         _instance = new VMImportTicket();
+                         _instance = new VMExportTicket();
                     return _instance;
                }
           }
 
-          public VMImportTicket()
+          public VMExportTicket()
           {
-               ProductImportRows = new ObservableCollection<RowImportProduct>();
-               ImportTicketListRows = new ObservableCollection<RowImportTicket>();
+               ProductExportRows = new ObservableCollection<RowImportProduct>();
+               ExportTicketListRows = new ObservableCollection<RowImportTicket>();
 
                DanhSachTenKho = new ObservableCollection<string>();
 
                DanhSachTenSP = new ObservableCollection<string>();
 
-               ImportDate = DateTime.Now.ToString("yyyy-MM-dd");
+               ExportDate = DateTime.Now.ToString("yyyy-MM-dd");
           }
 
           #region Biến
 
-          public ObservableCollection<RowImportProduct> ProductImportRows { get; set; }
-          public ObservableCollection<RowImportTicket> ImportTicketListRows { get; set; }
+          public ObservableCollection<RowImportProduct> ProductExportRows { get; set; }
+          public ObservableCollection<RowImportTicket> ExportTicketListRows { get; set; }
           public ObservableCollection<string> DanhSachTenKho { get; set; }
           public ObservableCollection<string> DanhSachTenSP { get; set; }
 
           public string productSelected;
-          public string ProductSelected 
-          { 
+          public string ProductSelected
+          {
                get => productSelected;
                set
                {
                     productSelected = value;
                     OnPropertyChanged(nameof(ProductSelected));
+
+                    if (value != null)
+                    {
+                         numStored = Convert.ToInt32(productSelected.Split('-')[1].Trim());
+                    }
                }
           }
 
-          private string importDate;
-          public string ImportDate
+          private string exportDate;
+          public string ExportDate
           {
-               get => importDate;
+               get => exportDate;
                set
                {
-                    importDate = value;
-                    OnPropertyChanged(nameof(ImportDate));
+                    exportDate = value;
+                    OnPropertyChanged(nameof(ExportDate));
                }
           }
 
@@ -79,40 +84,46 @@ namespace CNPMNC.ViewModels
                }
           }
 
-          private int numImported;
-          public int NumImported
+          private int numStored;
+          
+          private int numExported;
+          public int NumExported
           {
-               get => numImported;
+               get => numExported;
                set
                {
-                    numImported = value;
-                    OnPropertyChanged(nameof(NumImported));
+                    numExported = value;
+                    OnPropertyChanged(nameof(NumExported));
+
+                    if (value > numStored) NumExported = numStored;
                }
           }
 
-          VAddImportTicket vAddImportTicket;
+          VAddExportTicket vAddExportTicket;
+          int loiNhuan = 0;
           #endregion
 
           #region Biến ICommand
-          private ICommand mShowAddImportTicket;
+          private ICommand mShowAddExportTicket;
           private ICommand mAddProduct;
           private ICommand mUpdateProduct;
           private ICommand mDeleteProduct;
-          private ICommand mAddImportTicket;
+          private ICommand mAddExportTicket;
           #endregion
 
-          #region Get/Set Biến ICommand
-          public ICommand ShowAddImportTicketCommand
+          #region Get/Set biến ICommand
+          public ICommand ShowAddExportTicketCommand
           {
                get
                {
-                    if (mShowAddImportTicket == null)
+                    if (mShowAddExportTicket == null)
                     {
-                         mShowAddImportTicket = new RelayCommand(ShowAddImportTicket);
+                         mShowAddExportTicket = new RelayCommand(ShowAddExportTicket);
                     }
-                    return mShowAddImportTicket;
+                    return mShowAddExportTicket;
                }
           }
+
           public ICommand AddProductCommand
           {
                get
@@ -146,27 +157,41 @@ namespace CNPMNC.ViewModels
                     return mDeleteProduct;
                }
           }
-          public ICommand AddImportTicketCommand
+          public ICommand AddExportTicketCommand
           {
                get
                {
-                    if (mAddImportTicket == null)
+                    if (mAddExportTicket == null)
                     {
-                         mAddImportTicket = new RelayCommand(AddImportTicket);
+                         mAddExportTicket = new RelayCommand(AddExportTicket);
                     }
-                    return mAddImportTicket;
+                    return mAddExportTicket;
                }
           }
           #endregion
 
           #region Function
-          public void ShowAddImportTicket()
+          public async void LoadProductNames()
+          {
+               try
+               {
+                    var danhSach = await SanPhamSyncModel.DanhSachMaSPTenSP(Convert.ToInt32(UserSession.CurrentUser.MaKho));
+                    DanhSachTenSP.Clear();
+                    foreach (var item in danhSach) DanhSachTenSP.Add(item);
+               }
+               catch (Exception ex)
+               {
+                    SystemNotify.ErrorNotify("Lỗi lấy danh sách sản phẩm: " + ex.Message);
+               }
+          }
+
+          public void ShowAddExportTicket()
           {
                try
                {
                     // Kiểm tra xem cửa sổ đã được mở chưa
                     var existingWindow = Application.Current.Windows
-                        .OfType<VAddImportTicket>()
+                        .OfType<VAddExportTicket>()
                         .FirstOrDefault();
 
                     if (existingWindow != null)
@@ -180,8 +205,8 @@ namespace CNPMNC.ViewModels
                     else
                     {
                          // Nếu chưa mở, tạo mới và hiển thị
-                         vAddImportTicket = new VAddImportTicket();
-                         vAddImportTicket.Show();
+                         vAddExportTicket = new VAddExportTicket();
+                         vAddExportTicket.Show();
                     }
                }
                catch (Exception ex)
@@ -190,41 +215,13 @@ namespace CNPMNC.ViewModels
                }
           }
 
-          public async Task LoadImportTicketList()
+          public async Task LoadExportTicketList()
           {
-               var danhSach = await PhieuNhapSyncModel.DanhSachPhieuNhap();
-               ImportTicketListRows.Clear();
+               var danhSach = await PhieuXuatSyncModel.DanhSachPhieuXuat();
+               ExportTicketListRows.Clear();
                foreach (var item in danhSach)
                {
-                    ImportTicketListRows.Add(item);
-               }
-          }
-
-          public async void LoadStoreNames()
-          {
-               try
-               {
-                    var danhSach = await HeThongKhoSyncModel.DanhSachMaKhoTenKho();
-                    DanhSachTenKho.Clear();
-                    foreach (var item in danhSach) DanhSachTenKho.Add(item);
-               }
-               catch (Exception ex)
-               {
-                    SystemNotify.ErrorNotify("Lỗi lấy danh sách kho: " + ex.Message);
-               }
-          }
-
-          public async void LoadProductNames()
-          {
-               try
-               {
-                    var danhSach = await SanPhamSyncModel.DanhSachMaSPTenSP();
-                    DanhSachTenSP.Clear();
-                    foreach (var item in danhSach) DanhSachTenSP.Add(item);
-               }
-               catch (Exception ex)
-               {
-                    SystemNotify.ErrorNotify("Lỗi lấy danh sách sản phẩm: " + ex.Message);
+                    ExportTicketListRows.Add(item);
                }
           }
 
@@ -232,20 +229,20 @@ namespace CNPMNC.ViewModels
           {
                try
                {
-                    if (NumImported == 0)
+                    if (NumExported == 0)
                     {
                          SystemNotify.ErrorNotify("Bạn chưa nhập số lượng sản phẩm!!!");
                     }
                     else if (ProductSelected == "" || ProductSelected == null)
                     {
-                         SystemNotify.ErrorNotify("Bạn chưa nhập chọn sản phẩm!!!");
+                         SystemNotify.ErrorNotify("Bạn chưa chọn sản phẩm!!!");
                     }
                     else
                     {
-                         int maSP = Convert.ToInt32(ProductSelected.Split('.')[0].ToString().Trim());
-                         string tenSp = ProductSelected.Split('.')[1].ToString().Trim();
+                         int maSP = Convert.ToInt32(ProductSelected.Split('.','-')[0].ToString().Trim());
+                         string tenSp = ProductSelected.Split('.', '-')[1].ToString().Trim();
 
-                         bool checkExist = ProductImportRows.Any(p => p.MaSp == maSP);
+                         bool checkExist = ProductExportRows.Any(p => p.MaSp == maSP);
                          if (checkExist)
                          {
                               SystemNotify.ErrorNotify("Sản phẩm đã được thêm trong danh sách!");
@@ -255,18 +252,19 @@ namespace CNPMNC.ViewModels
                               SanPham spSelected = await SanPhamSyncModel.GetSanPhamById(maSP);
 
                               RowImportProduct importProduct = new RowImportProduct();
-                              importProduct.STT = ProductImportRows.Count + 1;
+                              importProduct.STT = ProductExportRows.Count + 1;
                               importProduct.MaSp = maSP;
                               importProduct.TenSp = tenSp;
-                              importProduct.SoLuong = NumImported;
+                              importProduct.SoLuong = NumExported;
                               importProduct.GiaBan = spSelected.GiaBan;
                               importProduct.GiaNhap = spSelected.GiaNhap;
 
-                              ProductImportRows.Add(importProduct);
+                              ProductExportRows.Add(importProduct);
 
-                              TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) + (((uint)Convert.ToDouble(spSelected.GiaNhap)) * (uint)NumImported));
+                              TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) + (((uint)Convert.ToDouble(spSelected.GiaBan)) * (uint)NumExported));
+                              loiNhuan += (int)((Convert.ToDouble(spSelected.GiaBan) - Convert.ToDouble(spSelected.GiaNhap)) * NumExported);
 
-                              NumImported = 0;
+                              NumExported = 0;
                               ProductSelected = null;
                          }
                     }
@@ -276,12 +274,11 @@ namespace CNPMNC.ViewModels
                     SystemNotify.ErrorNotify("Lỗi thêm sản phẩm: " + ex.Message);
                }
           }
-
           public void UpdateProduct()
           {
                try
                {
-                    if (NumImported == 0)
+                    if (NumExported == 0)
                     {
                          SystemNotify.ErrorNotify("Bạn chưa nhập số lượng sản phẩm!!!");
                     }
@@ -294,20 +291,21 @@ namespace CNPMNC.ViewModels
                          int maSP = Convert.ToInt32(ProductSelected.Split('.')[0].ToString().Trim());
                          string tenSp = ProductSelected.Split('.')[1].ToString().Trim();
 
-                         bool checkExist = ProductImportRows.Any(p => p.MaSp == maSP);
+                         bool checkExist = ProductExportRows.Any(p => p.MaSp == maSP);
                          if (!checkExist)
                          {
                               //SystemNotify.ErrorNotify("Sản phẩm đã được thêm trong danh sách!");
                          }
                          else
                          {
-                              var updatedProduct = ProductImportRows.FirstOrDefault(p => p.MaSp == maSP);
+                              var updatedProduct = ProductExportRows.FirstOrDefault(p => p.MaSp == maSP);
 
-                              TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) - Convert.ToUInt32(updatedProduct.SoLuong) * (uint)Convert.ToDouble(updatedProduct.GiaNhap) + (uint)NumImported * (uint)Convert.ToDouble(updatedProduct.GiaNhap));
+                              TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) - Convert.ToUInt32(updatedProduct.SoLuong) * (uint)Convert.ToDouble(updatedProduct.GiaBan) + (uint)NumExported * (uint)Convert.ToDouble(updatedProduct.GiaBan));
+                              loiNhuan = loiNhuan - (int)((Convert.ToDouble(updatedProduct.GiaBan) - Convert.ToDouble(updatedProduct.GiaNhap)) * (updatedProduct.SoLuong - NumExported));
 
-                              updatedProduct.SoLuong = NumImported;
+                              updatedProduct.SoLuong = NumExported;
 
-                              NumImported = 0;
+                              NumExported = 0;
                               ProductSelected = null;
                          }
                     }
@@ -322,7 +320,7 @@ namespace CNPMNC.ViewModels
           {
                try
                {
-                    if (NumImported == 0)
+                    if (NumExported == 0)
                     {
                          SystemNotify.ErrorNotify("Bạn chưa nhập số lượng sản phẩm!!!");
                     }
@@ -335,25 +333,26 @@ namespace CNPMNC.ViewModels
                          int maSP = Convert.ToInt32(ProductSelected.Split('.')[0].ToString().Trim());
                          string tenSp = ProductSelected.Split('.')[1].ToString().Trim();
 
-                         bool checkExist = ProductImportRows.Any(p => p.MaSp == maSP);
+                         bool checkExist = ProductExportRows.Any(p => p.MaSp == maSP);
                          if (!checkExist)
                          {
                               //SystemNotify.ErrorNotify("Sản phẩm đã được thêm trong danh sách!");
                          }
                          else
                          {
-                              var deletedProduct = ProductImportRows.FirstOrDefault(p => p.MaSp == maSP);
+                              var deletedProduct = ProductExportRows.FirstOrDefault(p => p.MaSp == maSP);
 
-                              for (int i = deletedProduct.STT; i < ProductImportRows.Count; i++)
+                              for (int i = deletedProduct.STT; i < ProductExportRows.Count; i++)
                               {
-                                   ProductImportRows[i].STT -= 1;
+                                   ProductExportRows[i].STT -= 1;
                               }
 
-                              ProductImportRows.Remove(deletedProduct);
+                              ProductExportRows.Remove(deletedProduct);
 
-                              TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) - Convert.ToUInt32(deletedProduct.SoLuong) * (uint)Convert.ToDouble(deletedProduct.GiaNhap));
+                              TotalPrice = FormatTienVND(ParseTienVND(TotalPrice) - Convert.ToUInt32(deletedProduct.SoLuong) * (uint)Convert.ToDouble(deletedProduct.GiaBan));
+                              loiNhuan = loiNhuan - (int)((Convert.ToDouble(deletedProduct.GiaBan) - Convert.ToDouble(deletedProduct.GiaNhap)) * deletedProduct.SoLuong);
 
-                              NumImported = 0;
+                              NumExported = 0;
                               ProductSelected = null;
                          }
                     }
@@ -364,19 +363,20 @@ namespace CNPMNC.ViewModels
                }
           }
 
-          public async void AddImportTicket()
+          public async void AddExportTicket()
           {
                try
                {
-                    await PhieuNhapSyncModel.ThemPhieuNhap(UserSession.CurrentUser.MaNv, ImportDate, Convert.ToInt32(UserSession.CurrentUser.MaKho), ParseTienVND(TotalPrice).ToString() + ".00");
+                    await PhieuXuatSyncModel.ThemPhieuXuat(UserSession.CurrentUser.MaNv, ExportDate, Convert.ToInt32(UserSession.CurrentUser.MaKho), ParseTienVND(TotalPrice).ToString() + ".00", loiNhuan.ToString() + ".00");
 
-                    await PhieuNhapSyncModel.ThemChiTietPhieuNhap(ProductImportRows, UserSession.CurrentUser.MaKho);
+                    await PhieuXuatSyncModel.ThemChiTietPhieuXuat(ProductExportRows, UserSession.CurrentUser.MaKho);
 
-                    ProductImportRows.Clear();
+                    ProductExportRows.Clear();
 
-                    ImportDate = DateTime.Now.ToString("yyyy-MM-dd");
+                    ExportDate = DateTime.Now.ToString("yyyy-MM-dd");
 
                     TotalPrice = "0";
+                    loiNhuan = 0;
                }
                catch (Exception ex)
                {

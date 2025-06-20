@@ -66,7 +66,7 @@ namespace CNPMNC.ViewModels
           };
 
           public List<double> Values = new List<double> { 100, 200, 110, 135 };
-          public List<string> Legends = new List<string> { "Máy giặt", "Máy rửa bát", "Điện thoại", "Laptop" };
+          public List<string> Legends = new List<string> { "Đùi gà lóc xương", "Nước mắm tỏi ớt", "Tương ớt Chinsu", "Bánh bông lan" };
           #endregion
 
           #region Function

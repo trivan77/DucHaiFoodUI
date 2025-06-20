@@ -1,5 +1,5 @@
-﻿<Window x:Class="CNPMNC.Views.Component.VAddImportTicket"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window x:Class="CNPMNC.Views.Component.VAddExportTicket"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
@@ -55,7 +55,7 @@
                     <RowDefinition Height="40"></RowDefinition>
                     <RowDefinition Height="30"></RowDefinition>
                     <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition></RowDefinition>
                </Grid.RowDefinitions>
@@ -71,7 +71,7 @@
 
                <local:FloatingLabelTextBox x:Name="txtNgayTaoPhieu" Grid.Row="1"
                                            LabelText="Ngày tạo phiếu" IsEnabled="False"
-                                           Text="{Binding ImportDate}"></local:FloatingLabelTextBox>
+                                           Text="{Binding ExportDate}"></local:FloatingLabelTextBox>
                <local:FloatingLabelTextBox x:Name="txtNguoiTaoPhieu" Grid.Row="3"
                                            LabelText="Người tạo phiếu" IsEnabled="False"></local:FloatingLabelTextBox>
 
@@ -82,7 +82,7 @@
                                             ItemsSource="{Binding DanhSachTenSP}"
                                             SelectedItem="{Binding ProductSelected}"></local:FloatingLabelComboBox>
                <local:FloatingLabelTextBox Grid.Row="9" x:Name="txtSoLuong"
-                                           LabelText="Số lượng" Text="{Binding NumImported}"></local:FloatingLabelTextBox>
+                                           LabelText="Số lượng xuất" Text="{Binding NumExported}"></local:FloatingLabelTextBox>
 
                <Grid Grid.Row="11">
                     <Grid.ColumnDefinitions>
@@ -144,7 +144,7 @@
                          </Grid>
 
                          <!-- Body -->
-                         <ItemsControl ItemsSource="{Binding ProductImportRows}">
+                         <ItemsControl ItemsSource="{Binding ProductExportRows}">
                               <ItemsControl.ItemTemplate>
                                    <DataTemplate>
                                         <utils:UCRowProductImport Margin="0 8 0 0" Height="40" RowClicked="UCRowProductImport_RowClicked"/>

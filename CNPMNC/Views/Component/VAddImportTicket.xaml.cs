@@ -36,6 +36,9 @@ namespace CNPMNC.Views.Component
                LoadCurrentStore();
                txtNguoiTaoPhieu.Text = UserSession.CurrentUser.TenNv;
                cbxTenSP.DropDownOpened += DanhSachTenSP_DropDownOpened;
+
+               btnThem.Visibility = Visibility.Visible;
+               btnUpdate.Visibility = Visibility.Hidden;
           }
 
           public VAddImportTicket(int maPn, string tenNV, string maKho, string ngayNhap, string tongTien)
@@ -51,6 +54,9 @@ namespace CNPMNC.Views.Component
                vmImportTicket.TotalPrice = tongTien;
                cbxTenSP.DropDownOpened += DanhSachTenSP_DropDownOpened;
                LoadChiTietPhieuNhap(maPn);
+
+               btnThem.Visibility = Visibility.Hidden;
+               btnUpdate.Visibility = Visibility.Visible;
           }
 
           async void LoadChiTietPhieuNhap(int maPn)

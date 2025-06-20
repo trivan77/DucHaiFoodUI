@@ -127,6 +127,7 @@
     <Compile Include="Models\DataSync\HeThongKhoSyncModel.cs" />
     <Compile Include="Models\DataSync\NhanVienSyncModel.cs" />
     <Compile Include="Models\DataSync\PhieuNhapSyncModel.cs" />
+    <Compile Include="Models\DataSync\PhieuXuatSyncModel.cs" />
     <Compile Include="Models\DataSync\SanPhamSyncModel.cs" />
     <Compile Include="Models\HeThongKho.cs" />
     <Compile Include="Models\LoaiSanPham.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="Utils\NotifyBase.cs" />
     <Compile Include="Utils\RelayCommand.cs" />
     <Compile Include="Utils\SystemNotify.cs" />
+    <Compile Include="ViewModels\VMExportTicket.cs" />
     <Compile Include="ViewModels\VMImportTicket.cs" />
     <Compile Include="ViewModels\VMMainWindow.cs" />
     <Compile Include="ViewModels\VMOverview.cs" />
@@ -167,6 +169,9 @@
     <Compile Include="Views\Component\ForOverview\UCStatisticCard.xaml.cs">
       <DependentUpon>UCStatisticCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Component\ForTable\UCRowExportTicket.xaml.cs">
+      <DependentUpon>UCRowExportTicket.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Component\ForTable\UCRowImportTicket.xaml.cs">
       <DependentUpon>UCRowImportTicket.xaml</DependentUpon>
     </Compile>
@@ -181,6 +186,9 @@
     </Compile>
     <Compile Include="Views\Component\ForTable\UCRowStoreList.xaml.cs">
       <DependentUpon>UCRowStoreList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Component\VAddExportTicket.xaml.cs">
+      <DependentUpon>VAddExportTicket.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Component\VAddImportTicket.xaml.cs">
       <DependentUpon>VAddImportTicket.xaml</DependentUpon>
@@ -238,6 +246,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Component\ForTable\UCRowExportTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Component\ForTable\UCRowImportTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -255,6 +267,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Component\ForTable\UCRowStoreList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Component\VAddExportTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
